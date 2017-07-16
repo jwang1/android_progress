@@ -24,7 +24,39 @@ Android学习路线指南: http://blog.csdn.net/singwhatiwanna/article/details/4
 
 
 
-2. 
+2. Intermediate 
+
+   a) Read 任玉刚's book, or Android群英传;
+
+   b) Read Android Source Code:  (this site has some link https://www.youtube.com/watch?v=NsqFOSzoYE8 -- godir  croot etc) 
+
+   c) Wo3 de bu3 cong: add notes to source code, at method level; add caller, pre-conditions, post-conditions
+
+   d) write OWN tech article, address certain degree of difficulty, and independent thinking ...
+
+   e) build own android view, and other techn development ...
+
+   f) Open Source Projects 
+
+
+3. Advanced
+
+   a) Gain more knowledge on Android foundation, vertical and horizontal; <--- go back to visit his blog on technologies to grasp;
+
+   b) Build Architecture and Concept ...
+
+   c) Also build Design Patterns (? good for the original ? (设计模式和架构) )
+
+   d) Read books:  《Android 源码设计模式解析与实战》 --  何红辉，关爱民 著 、《Android内核剖析》 (柯元旦) --  ;  and his book.
+
+
+   Also, in Android circle: 以Android源码为案例的设计模式解析与实战书 CSDN社区专家精心撰写 
+   
+   业界专家 1) 邓凡平 2) 郭霖 3) 任玉刚 4) 徐宜生等鼎力推荐 让你从码农转变为专家的实践指南
+
+
+4. Staff / Principal 
+
 
 
 
