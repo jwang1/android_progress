@@ -1,0 +1,16 @@
+
+7/16/2017 (Sunday) 
+
+1. Chapter 1 (Activity)
+
+   onCreate -> onStart -> onResume -> run -> onPause -> onStop -> onRestart (back to onStart) or onDestroy (go to destroy)
+
+
+   My take on these:  onStart (not necessary showing the activity on screen yet);  onResume can show  (need to come back to revisit it)
+
+
+   TODO:  need to write that Demo, to show 2 activities sequence ...
+
+
+
+
