@@ -12,5 +12,41 @@
    TODO:  need to write that Demo, to show 2 activities sequence ...
 
 
+7/20/17 (Thursday)
+
+1. revisit Activity
+
+   think of activity on the phone :   onCreate -- the activity is in mem and CPU now;   onStart -- the activity is warming up, but not visible yet;   onResume -- the activity is on screen now.
+
+
+
+    so,  "onStart" vs "onResume" :  onResume activity is on Screen;  but onStart is not yet, almost there.    Think of the phone :  memory,  back of display, front of display  ---  |->|->|   so, onCreate (on memory), onStart (back of screen), onResume (front display) ...
+
+
+   	1.1  onPause of an Activity must be executed, before another activity's onResume ...
+
+	1.2  when user's back to previous activity:  onRestart -> onStart -> onResume  executed
+
+	1.3  when user switch to home or another activity;  previous activity's onPause -> onStop executed .
+
+	1.4  when user click "back" soft button;  onPause -> onStop -> onDestroy
+
+	1.5  should NOT do heavy work in onPause, because the next Activity's onResume cannot start until previous Activity's onPause completes
+
+
+7/21/17 (Friday)
+
+TODO:  
+
+  *) Chapter 1, P6  example, how to make 2 activities swap, ie, one activity goes out, and the other comes in, to show the 1st activity's onPause is called before 2nd activity's onResume .
+
+      "how to" part,  perhaps create 2 apps ?   or, can we have 2 activities in one app, and do the switch ? <--  should be, for instance : 
+	    a) create one activity with all todo list
+		b) once click a todo item, go to the Details of the item.
+
+	Did this before when creating the Movie review app, forgot it now, 
+
+
+
 
 
