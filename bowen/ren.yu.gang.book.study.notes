@@ -48,5 +48,38 @@ TODO:
 
 
 
+7/22/17 (Saturday)
+
+  1. working on TODOs from 7/21
+
+  2. About Activities Priorities :  Activity showing on screen and user can interact with it  -->  Activity on front but not able to interact with users (for instance, the activitiy is front, but it has a dialog up, hence, user cannot interact with the activity, but the dialog)   -->  Activity not on screen 
+
+  3.  Activity Priorities :  activites killed when out of resources
+
+  4.  Activity LaunchMode !  --- important topic
+
+		standard
+
+		singleTop
+
+		singleTask
+
+		singleInstance
+
+
+
+ 5.  IntentFilter  matching ...
+
+       action matching
+
+	   category matching
+
+	   data matching
+
+
+ 
+
+
+
 
 
