@@ -1,6 +1,10 @@
 
 7/16/2017 (Sunday) 
 
+
+	Android's :  Activity ,  Service ,  Receiver , ContentProvider
+
+
 1. Chapter 1 (Activity)
 
    onCreate -> onStart -> onResume -> run -> onPause -> onStop -> onRestart (back to onStart) or onDestroy (go to destroy)
@@ -10,6 +14,9 @@
 
 
    TODO:  need to write that Demo, to show 2 activities sequence ...
+
+       
+	   Completed it on 7/22/17 (Sat) https://github.com/jwang1/onPauseCalledBeforeAnotherActivityOnResume
 
 
 7/20/17 (Thursday)
@@ -44,8 +51,10 @@ TODO:
 	    a) create one activity with all todo list
 		b) once click a todo item, go to the Details of the item.
 
-	Did this before when creating the Movie review app, forgot it now, 
+	Did this before when creating the Movie review app, forgot it now,   <== Completed this on Saturday, in one App, created 2 activites (like Todo List;  and todoItem  two activities; and use Intent to startActivity;  and added onPause and onResume overrided methods simply for comments)
 
+
+	***   Completed it on 7/22/17 (Sat) https://github.com/jwang1/onPauseCalledBeforeAnotherActivityOnResume
 
 
 7/22/17 (Saturday)
@@ -77,7 +86,63 @@ TODO:
 	   data matching
 
 
- 
+
+7/22/17 (Satureday)
+
+ Chapter 2 : IPC
+
+ 1. Binder
+
+
+ 2. Socket
+
+
+ 3. android:process
+
+    *) can only be defined from Manifest file;
+
+	*) process-name starts with  ':' character, means 'private process'
+
+	                       not start ':',  means the 'shared process' 
+
+    *) SHARED DATA !!!
+
+	   the threading-synchronized may not working in processes-shared-data ...
+
+		
+	
+		Inter-Process mechanism : 
+
+			a) Intent passing data
+
+			b) shared files
+
+			c) SharedPreferences
+
+			d) Binder Messenger
+
+			e) AIDL
+
+			f) Socket  (the Kernel level, Linux sys) and ...
+
+			g) old days: I tried Pipe, socket, almost the shared memory (but just stopped at the analysis)
+
+
+		Data-passing:
+
+		    a) serializable
+
+				serialVersionUID --   if old objection has value 1L ;   the new class has value 2L,  and then,  (Serialized-Class) ObjectInputStream(FileInputStream("serialized-obj"))  will not work.
+
+
+				if not set serialVersionUID in the class, deserialization will calculate hashCode from the object, and assign it to serialVersionUID.  Now, if class's new field or field-deleted, the hashCode will be different for the obj serialized before class change which also not serialVersionUID set.   Then, the deserialization going to fail.
+
+
+			b) Parcelable
+
+			c) Binder
+
+ 4. android:thread
 
 
 
