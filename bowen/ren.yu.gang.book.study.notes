@@ -140,7 +140,39 @@ TODO:
 
 			b) Parcelable
 
-			c) Binder
+			   In android apps, use Parcelable is better than Serializable; usage wise Parcelable is a little more typings; but i/o expense is small, and faster.
+
+
+
+			c) Binder  <--- Chapter 2 (p52)
+
+				  *)  AIDL (Android Interface Definition Language ? )  -  also uses package, but still different from existing other Java classes.
+
+							describe the interface methods (similar to RMI's methods? webmethods ? )  getBookList  and addBook defined in IBookManager.aidl
+
+					*)  auto generated coe IBookManager.java from IBookManager.aidl file
+
+							IBookManager includes Stub class which is used for anything transmit in the same process
+							                      Proxy class for transmit in Different Processes.
+
+					
+
+					    in case of two processes communication (IPC) using Binder;  the flow (cycle):
+
+							     Client -> Binder -> Service (onTransact) -> thread-pool -> reply -> Binder -> Client
+
+
+					*)  we can write Binder without AIDL file;  the AIDL file is used to generate Binder class.
+
+					      note the android.os.IInterface  
+
+												 IBinder::transact
+
+
+					*) Binder death (remote side terminated)   -- set some callback to notify service so that it can handle Binder death.
+
+							IBinder::linkToDeath   IBinder::unlinkToDeath 
+
 
  4. android:thread
 
