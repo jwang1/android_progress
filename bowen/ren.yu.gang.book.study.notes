@@ -123,6 +123,8 @@ TODO:
 
 			e) AIDL
 
+			-) ContentProvider
+
 			f) Socket  (the Kernel level, Linux sys) and ...
 
 			g) old days: I tried Pipe, socket, almost the shared memory (but just stopped at the analysis)
@@ -211,7 +213,58 @@ TODO:
 						
 
 
+
+				binder pool 
+
+				  Binder mBinderPool = new BinderPool.BinderpoolImpl();
+
+
+
+	*) ContentProvider (built on top of Binder)
+
+
+	*) Socket 
+
+
+		need permissions
+
+		<uses-permission android:name="android.permission.INTERNET" />
+		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+		TcpServer -  
+		
+			svrSckt = new ServerSocket(18001);
+
+			final Socket client = svrSckt.accept();
+
+			new Thread() { 
+				@Override
+				public void run() {
+					responseClient(client);
+				}
+			}.start();
+
+			void responseClient(Socket sckt) {
+				.
+				.
+				.
+			}
+
+
+
+
+
  4. android:thread
+
+
+ 7/27/17 (Thr) -  P121 ICP comparison -  
+
+ 	bundler vs Shared-file vs AIDL vs Messenger vs ContentProvider vs Socket 
+
+	
+		BinderPool 
+
 
 
 
