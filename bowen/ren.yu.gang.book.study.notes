@@ -330,6 +330,174 @@ View and event handling
 
 
 
+  
+  2. the other book "Android from novice to master",  chapter 2, re-visit
+
+      "ADB"  -- Android Debug Bridge   
+
+
+	       Goals / Motivations :   1) under the hood,  2) automation / batch processing -- kind like the Tomcat script auto dispatching
+
+
+      adb devices   (after phone set usb debug, https://developer.android.com/studio/command-line/adb.html,  and connected to phone, and after brew install adb -- check google;   and now showed the physical phone connected via adb !)
+
+	  note, not checked android_sdk/platform-tools yet ...
+
+
+  ==>  if adb NOT working, it's good to restart adb server
+
+      adb kill-server
+
+
+    ==>  The Wi-Fi connect (adb) is very useful (way of setting is also documented above)
+
+	:build-tools $ adb tcpip 5555
+	restarting in TCP mode port: 5555
+	:build-tools $ adb connect 192.168.1.2
+	connected to 192.168.1.2:5555
+	:build-tools $ 
+
+
+	--> verifying:
+
+	adb devices
+	List of devices attached
+	192.168.1.2:5555	device
+
+
+    --> Query for device
+	adb devices -l
+	 
+	  192.168.1.2:5555       device product:klteuc model:SAMSUNG_SM_G900A device:klteatt
+
+
+
+    ==>  send commands to a specific device
+
+	 a) first build APK from Android Studio
+	 b) find the APK file
+
+	 find . -name *apk
+	 ./app/build/outputs/apk
+	 ./app/build/outputs/apk/app-debug.apk
+
+
+	 c) install it on specific device, via
+
+	 adb -s 192.168.1.2:5555 install ./app/build/outputs/apk/app-debug.apk
+	 ./app/build/outputs/apk/app-debug.apk: 1 file pushed. 0.4 MB/s (1544402 bytes in 3.523s)
+	 	pkg: /data/local/tmp/app-debug.apk
+		Failure [INSTALL_FAILED_ALREADY_EXISTS]
+
+
+		
+
+		c-2) after deleting the existing apk file from device
+
+		and install it again, it went to success
+
+
+		adb -s 192.168.1.2:5555 install ./app/build/outputs/apk/activitiesCalling.apk
+		./app/build/outputs/apk/activitiesCalling.apk: 1 file pushed. 0.4 MB/s (1544402 bytes in 3.383s)
+			pkg: /data/local/tmp/activitiesCalling.apk
+			Success
+
+
+
+
+
+
+    ==>  set port forwarding  (from local port to device port, vice versa)  ,  not tried, but in the doce 
+
+
+	-->  Copy files from / to device
+
+	adb pull "remote" "local"
+
+	adb push "local"  "remote" 
+
+
+	==>  shell command
+
+
+		adb -s 192.168.1.2:5555 shell ls -l
+		drwxr-xr-x root     root              2014-03-30 03:40 acct
+
+
+
+
+	==> call "Activity Manager" (am)
+
+		adb -s 192.168.1.2:5555 shell am start -a android.intent.action.VIEW
+		Starting: Intent { act=android.intent.action.VIEW }
+
+
+		NOTE, there was a small pop-up on PHONE !  (the activity)
+
+
+        
+
+   ==> call "Package Manager" (pm)
+
+       adb -s 192.168.1.2:5555 shell pm uninstall com.iexpress.hello.oneactivityonpauserunsbeforeanotheractivityonresume
+	   Success
+
+	   after that, the APP got removed .
+
+
+   ==> take snapshot 
+
+       adb -s 192.168.1.2:5555 shell 
+	   shell@klteatt:/ $ screencap /sdcard/taken.from.adb.png
+	   shell@klteatt:/ $ ls /sdcard/taken*
+	   /sdcard/taken.from.adb.png
+	   shell@klteatt:/ $ ls -l /sdcard/taken*                                         
+	   -rwxrwx--- root     sdcard_r   397467 2017-08-02 00:38 taken.from.adb.png
+	   shell@klteatt:/ $ 
+
+
+
+  ==> record video  (awesome stuff !)  <-- can we do this in background ?   this is a very hacking stuff
+
+      adb -s 192.168.1.2:5555 shell
+
+	  screenrecord /sdcard/recorded.from.adb.mp4
+
+	  shell@klteatt:/ $ screenrecord /sdcard/recorded.from.adb.mp4
+	  ^Cshell@klteatt:/ $ ls -l /sdcard/record*
+	  -rwxrwx--- root     sdcard_r  4291147 2017-08-02 00:41 recorded.from.adb.mp4
+	  shell@klteatt:/ $
+
+
+	  --> get the recorded video local macbook pro,  and play here
+
+	  adb -s 192.168.1.2:5555 pull /sdcard/recorded.from.adb.mp4
+	  /sdcard/recorded.from.adb.mp4: 1 file pulled. 0.4 MB/s (4291147 bytes in 11.082s)
+
+
+
+  ==> read ART (Android Runtime) for App
+
+     Requires Android 7.0 (API level 24)
+
+	 <-- I have Android 5.1, hence not able to do it
+
+	  adb -s 192.168.1.2:5555 shell cmd package dump-profiles com.iexpress.hello.oneactivityonpauserunsbeforeanotheractivityonresume
+	  /system/bin/sh: cmd: not found
+
+
+
+  ==>  other commands, 
+
+     adb -s 192.168.1.2:5555 shell ls /system/bin     <--- check all commands
+
+
+	 adb -s 192.168.1.2:5555 shell dumpsys            <---  dump ALL android device stuff on local macbook pro screen !
+
+
+
+  In Summary:  this (https://developer.android.com/studio/command-line/adb.html) is great for ADB !
+
 
 
 
