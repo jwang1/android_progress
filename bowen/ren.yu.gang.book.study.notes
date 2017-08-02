@@ -265,6 +265,49 @@ TODO:
 	
 		BinderPool 
 
+8/1/17 (Tue) 
+
+View and event handling
+
+  when an event raised, it goes through 
+  				Activity->Window->View 
+
+  If view's onTouchEvent returns "false", ie, not handling such event, and then it will bubble up to Window, if still not handled, and then bubble up to Activity to be handled.  (similar to emergency handling, worker handles it first, if not able to, and then pass up to supervisor...) 
+
+
+    1. one touch event, 
+
+	   *)  boolean dispatchTouchEvent(MotionEvent ev)
+
+	   			"dispatch", if event dispatched to current-View, this method is called; and returns current-View's onTouchEvent and child view's dispatchTouchEvent method's value.
+
+	   *)  boolean onInterceptTouchEvent(MotionEvent ev)
+
+	   			"used inside view's dispatchTouchEvent method - ie the above one", 
+
+	   *) boolean onTouchEvent(MotionEvent ev)
+
+
+				used in dispatchTouchEvent method; used to handle that event, 
+
+
+	In summary, 
+
+		public boolean dispatchTouchEvent(MotionEvent ev) {
+			boolean consume = false;
+
+			if (onInterceptTouchEvent(ev)) {
+				consume = onTouchEvent(ev);
+			} else {
+				consume = child.dispatchTouchEvent(ev);		// notice the child 
+			}
+
+			return consume;
+
+		}
+
+
+
 
 
 
