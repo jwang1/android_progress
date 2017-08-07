@@ -505,6 +505,58 @@ View and event handling
    TODO:  really want to build the tic-tac-toe 
 
 
+8/6/17 (Sun) 
+
+   1. still need to do the tic-tac-toe scheduled 8/2, 
+
+   2. chapter 3,  3.5 - view scrolling conflits
+
+      *)  parent container, once it gets events, it will handle all of them, will not pass to children containers.
+
+	  *)  
+
+	  <--  need to revisit, not even had the conflict; not into this subject right now.
+
+
+   3. Chapter 4. view under the hood 
+
+      ViewRoot,  DecorView ,  WindowManager 
+
+	  
+	  ViewRoot root = new ViewRootImpl(view.getContext(), display);
+	  root.setView(view, wparams, panelParentView);
+
+
+
+      *) view rendering:   from ViewRoot::performTraversals() -> ::measure() -> ::layout() -> ::draw()    -->  drawing the view 
+
+	  *) DecorView :  
+
+
+      *) MeasureSpec :  SpecMode, SpecSize 
+
+	        LayoutParams.MATCH_PARENT   
+			LayoutParams.WRAP_CONTENT
+
+
+
+		ViewGroup's measure conduct on its children views' measure 
+
+
+	  *) Layout :  setFrame set mLeft, mRight, mTop, and mBottom for View.
+
+
+	  *)  Draw:  
+	            background.draw(canvas)
+				onDraw  (draw self)
+				dispatchDraw (draw children)
+				onDrawScrollBars
+
+
+
+
+
+
 
 
 
