@@ -560,7 +560,7 @@ View and event handling
   2. Checked in the self-view android project at https://github.com/jwang1/androidSelfView
 
 
-  2. GIT : 
+  3. GIT : 
    
      push new local project to GitHub :  
 	   1) in local android project, make sure clean project (from Android Studio is fine)
@@ -574,6 +574,11 @@ View and event handling
 	   8) --> reference : https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
 
 
+  4. TODO: 
+
+  	 do the project on page 115 - from the book :  Android from novice to expert .
+
+	 also need to do the tic-tac-toe
 
 
 
