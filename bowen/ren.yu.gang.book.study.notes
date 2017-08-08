@@ -557,6 +557,21 @@ View and event handling
 8/7/17 (Monday)
 
   1. Worked on "Self-defined-View" Page 63, Chapter 3, Book: Android from novice to expert - by Ming Ri Ke Ji - published 2012 in Chinese.
+  2. Checked in the self-view android project at https://github.com/jwang1/androidSelfView
+
+
+  2. GIT : 
+   
+     push new local project to GitHub :  
+	   1) in local android project, make sure clean project (from Android Studio is fine)
+	   2) git init
+	   3) git add -all  (make sure some good .gitignore)
+	   4) git commit -am 'init check in: project short description'
+	   5) *** create a new repository from GitHub
+	   6) git remote add origin https://.....
+	   7) git push -u origin master
+
+	   8) --> reference : https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
 
 
 
