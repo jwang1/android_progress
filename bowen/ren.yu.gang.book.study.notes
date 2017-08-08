@@ -2,7 +2,7 @@
 7/16/2017 (Sunday) 
 
 
-	Android's :  Activity ,  Service ,  Receiver , ContentProvider
+  Android's :  Activity ,  Service ,  Receiver , ContentProvider
 
 
 1. Chapter 1 (Activity)
@@ -16,7 +16,7 @@
    TODO:  need to write that Demo, to show 2 activities sequence ...
 
        
-	   Completed it on 7/22/17 (Sat) https://github.com/jwang1/onPauseCalledBeforeAnotherActivityOnResume
+     Completed it on 7/22/17 (Sat) https://github.com/jwang1/onPauseCalledBeforeAnotherActivityOnResume
 
 
 7/20/17 (Thursday)
@@ -30,15 +30,15 @@
     so,  "onStart" vs "onResume" :  onResume activity is on Screen;  but onStart is not yet, almost there.    Think of the phone :  memory,  back of display, front of display  ---  |->|->|   so, onCreate (on memory), onStart (back of screen), onResume (front display) ...
 
 
-   	1.1  onPause of an Activity must be executed, before another activity's onResume ...
+  1.1  onPause of an Activity must be executed, before another activity's onResume ...
 
-	1.2  when user's back to previous activity:  onRestart -> onStart -> onResume  executed
+  1.2  when user's back to previous activity:  onRestart -> onStart -> onResume  executed
 
-	1.3  when user switch to home or another activity;  previous activity's onPause -> onStop executed .
+  1.3  when user switch to home or another activity;  previous activity's onPause -> onStop executed .
 
-	1.4  when user click "back" soft button;  onPause -> onStop -> onDestroy
+  1.4  when user click "back" soft button;  onPause -> onStop -> onDestroy
 
-	1.5  should NOT do heavy work in onPause, because the next Activity's onResume cannot start until previous Activity's onPause completes
+  1.5  should NOT do heavy work in onPause, because the next Activity's onResume cannot start until previous Activity's onPause completes
 
 
 7/21/17 (Friday)
@@ -48,13 +48,13 @@ TODO:
   *) Chapter 1, P6  example, how to make 2 activities swap, ie, one activity goes out, and the other comes in, to show the 1st activity's onPause is called before 2nd activity's onResume .
 
       "how to" part,  perhaps create 2 apps ?   or, can we have 2 activities in one app, and do the switch ? <--  should be, for instance : 
-	    a) create one activity with all todo list
-		b) once click a todo item, go to the Details of the item.
+      a) create one activity with all todo list
+    b) once click a todo item, go to the Details of the item.
 
-	Did this before when creating the Movie review app, forgot it now,   <== Completed this on Saturday, in one App, created 2 activites (like Todo List;  and todoItem  two activities; and use Intent to startActivity;  and added onPause and onResume overrided methods simply for comments)
+  Did this before when creating the Movie review app, forgot it now,   <== Completed this on Saturday, in one App, created 2 activites (like Todo List;  and todoItem  two activities; and use Intent to startActivity;  and added onPause and onResume overrided methods simply for comments)
 
 
-	***   Completed it on 7/22/17 (Sat) https://github.com/jwang1/onPauseCalledBeforeAnotherActivityOnResume
+  ***   Completed it on 7/22/17 (Sat) https://github.com/jwang1/onPauseCalledBeforeAnotherActivityOnResume
 
 
 7/22/17 (Saturday)
@@ -67,23 +67,23 @@ TODO:
 
   4.  Activity LaunchMode !  --- important topic
 
-		standard
+    standard
 
-		singleTop
+    singleTop
 
-		singleTask
+    singleTask
 
-		singleInstance
+    singleInstance
 
 
 
  5.  IntentFilter  matching ...
 
-       action matching
+     action matching
 
-	   category matching
+     category matching
 
-	   data matching
+     data matching
 
 
 
@@ -101,155 +101,155 @@ TODO:
 
     *) can only be defined from Manifest file;
 
-	*) process-name starts with  ':' character, means 'private process'
+  *) process-name starts with  ':' character, means 'private process'
 
-	                       not start ':',  means the 'shared process' 
+                  not start ':',  means the 'shared process' 
 
     *) SHARED DATA !!!
 
-	   the threading-synchronized may not working in processes-shared-data ...
+     the threading-synchronized may not working in processes-shared-data ...
 
-		
-	
-		Inter-Process mechanism : 
+    
+  
+    Inter-Process mechanism : 
 
-			a) Intent passing data
+      a) Intent passing data
 
-			b) shared files
+      b) shared files
 
-			c) SharedPreferences
+      c) SharedPreferences
 
-			d) Binder Messenger
+      d) Binder Messenger
 
-			e) AIDL
+      e) AIDL
 
-			-) ContentProvider
+      -) ContentProvider
 
-			f) Socket  (the Kernel level, Linux sys) and ...
+      f) Socket  (the Kernel level, Linux sys) and ...
 
-			g) old days: I tried Pipe, socket, almost the shared memory (but just stopped at the analysis)
+      g) old days: I tried Pipe, socket, almost the shared memory (but just stopped at the analysis)
 
 
-		Data-passing:
+    Data-passing:
 
-		    a) serializable
+        a) serializable
 
-				serialVersionUID --   if old objection has value 1L ;   the new class has value 2L,  and then,  (Serialized-Class) ObjectInputStream(FileInputStream("serialized-obj"))  will not work.
+        serialVersionUID --   if old objection has value 1L ;   the new class has value 2L,  and then,  (Serialized-Class) ObjectInputStream(FileInputStream("serialized-obj"))  will not work.
 
 
-				if not set serialVersionUID in the class, deserialization will calculate hashCode from the object, and assign it to serialVersionUID.  Now, if class's new field or field-deleted, the hashCode will be different for the obj serialized before class change which also not serialVersionUID set.   Then, the deserialization going to fail.
+        if not set serialVersionUID in the class, deserialization will calculate hashCode from the object, and assign it to serialVersionUID.  Now, if class's new field or field-deleted, the hashCode will be different for the obj serialized before class change which also not serialVersionUID set.   Then, the deserialization going to fail.
 
 
-			b) Parcelable
+      b) Parcelable
 
-			   In android apps, use Parcelable is better than Serializable; usage wise Parcelable is a little more typings; but i/o expense is small, and faster.
+         In android apps, use Parcelable is better than Serializable; usage wise Parcelable is a little more typings; but i/o expense is small, and faster.
 
 
 
-			c) Binder  <--- Chapter 2 (p52)
+      c) Binder  <--- Chapter 2 (p52)
 
-				  *)  AIDL (Android Interface Definition Language ? )  -  also uses package, but still different from existing other Java classes.
+          *)  AIDL (Android Interface Definition Language ? )  -  also uses package, but still different from existing other Java classes.
 
-							describe the interface methods (similar to RMI's methods? webmethods ? )  getBookList  and addBook defined in IBookManager.aidl
+              describe the interface methods (similar to RMI's methods? webmethods ? )  getBookList  and addBook defined in IBookManager.aidl
 
-					*)  auto generated coe IBookManager.java from IBookManager.aidl file
+          *)  auto generated coe IBookManager.java from IBookManager.aidl file
 
-							IBookManager includes Stub class which is used for anything transmit in the same process
-							                      Proxy class for transmit in Different Processes.
+              IBookManager includes Stub class which is used for anything transmit in the same process
+                                    Proxy class for transmit in Different Processes.
 
-					
+          
 
-					    in case of two processes communication (IPC) using Binder;  the flow (cycle):
+              in case of two processes communication (IPC) using Binder;  the flow (cycle):
 
-							     Client -> Binder -> Service (onTransact) -> thread-pool -> reply -> Binder -> Client
+                   Client -> Binder -> Service (onTransact) -> thread-pool -> reply -> Binder -> Client
 
 
-					*)  we can write Binder without AIDL file;  the AIDL file is used to generate Binder class.
+          *)  we can write Binder without AIDL file;  the AIDL file is used to generate Binder class.
 
-					      note the android.os.IInterface  
+                note the android.os.IInterface  
 
-												 IBinder::transact
+                         IBinder::transact
 
 
-					*) Binder death (remote side terminated)   -- set some callback to notify service so that it can handle Binder death.
+          *) Binder death (remote side terminated)   -- set some callback to notify service so that it can handle Binder death.
 
-							IBinder::linkToDeath   IBinder::unlinkToDeath 
+              IBinder::linkToDeath   IBinder::unlinkToDeath 
 
 
 
-			d) Sharing with files :   process-1 writes to a file;   and process-2 reads from that file.
+      d) Sharing with files :   process-1 writes to a file;   and process-2 reads from that file.
 
 
-			       now, if both write to the file, the shared-file can be problem .
+             now, if both write to the file, the shared-file can be problem .
 
 
 
-			e) SharedPreferences
+      e) SharedPreferences
 
-						data saved in /data/data/package-name/shared_prefs  directory
+            data saved in /data/data/package-name/shared_prefs  directory
 
-						the data can be lost, not recommended for IPC data sharing.
+            the data can be lost, not recommended for IPC data sharing.
 
 
 
-			f) Messenger
+      f) Messenger
 
-					it's built on AIDL, light-weight IPC :
+          it's built on AIDL, light-weight IPC :
 
-						i. service layer :  MessengerService extends Service
-						ii. client side  :  MessengerHandler extends Handler
+            i. service layer :  MessengerService extends Service
+            ii. client side  :  MessengerHandler extends Handler
 
 
-			g) AIDL 
+      g) AIDL 
 
-						supports :  primirary types (int, long, char, boolean, double etc)
-						            String and CharSequence
-												List (only ArrayList and all its elements have to be supported by AIDL)
-												Map (only HashMap and all its elements have to be supported by AIDL)
-												Parcelable  (any objs implements Parcelable interface)
-												AIDL 
+            supports :  primirary types (int, long, char, boolean, double etc)
+                        String and CharSequence
+                        List (only ArrayList and all its elements have to be supported by AIDL)
+                        Map (only HashMap and all its elements have to be supported by AIDL)
+                        Parcelable  (any objs implements Parcelable interface)
+                        AIDL 
 
 
-						
+            
 
 
 
-				binder pool 
+        binder pool 
 
-				  Binder mBinderPool = new BinderPool.BinderpoolImpl();
+          Binder mBinderPool = new BinderPool.BinderpoolImpl();
 
 
 
-	*) ContentProvider (built on top of Binder)
+  *) ContentProvider (built on top of Binder)
 
 
-	*) Socket 
+  *) Socket 
 
 
-		need permissions
+    need permissions
 
-		<uses-permission android:name="android.permission.INTERNET" />
-		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
-		TcpServer -  
-		
-			svrSckt = new ServerSocket(18001);
+    TcpServer -  
+    
+      svrSckt = new ServerSocket(18001);
 
-			final Socket client = svrSckt.accept();
+      final Socket client = svrSckt.accept();
 
-			new Thread() { 
-				@Override
-				public void run() {
-					responseClient(client);
-				}
-			}.start();
+      new Thread() { 
+        @Override
+        public void run() {
+          responseClient(client);
+        }
+      }.start();
 
-			void responseClient(Socket sckt) {
-				.
-				.
-				.
-			}
+      void responseClient(Socket sckt) {
+        .
+        .
+        .
+      }
 
 
 
@@ -260,10 +260,10 @@ TODO:
 
  7/27/17 (Thr) -  P121 ICP comparison -  
 
- 	bundler vs Shared-file vs AIDL vs Messenger vs ContentProvider vs Socket 
+   bundler vs Shared-file vs AIDL vs Messenger vs ContentProvider vs Socket 
 
-	
-		BinderPool 
+  
+    BinderPool 
 
 
 
@@ -273,7 +273,7 @@ TODO:
 
       there are some good stuff, the structure is very clear, and learned quite a lot;  
 
-	  worth of reading again;  and the Final Project is good.
+    worth of reading again;  and the Final Project is good.
 
 
 
@@ -281,9 +281,9 @@ TODO:
 
        watched "https://www.youtube.com/watch?v=IzHoNwlCGnE&list=PLJV_el3uVTsPMxPbjeX7PicgWbY7F8wW9"  (brief introduction of Deep Learning - very helpful on concept ,  history, simple, slow are better)
 
-	   watched "https://www.youtube.com/watch?v=FrKWiRv254g&list=PLJV_el3uVTsPy9oCRY30oBPNLCo89yu49&index=10" (CNN - Convolutional Neuro network) it's good, clearly explained CNN
+     watched "https://www.youtube.com/watch?v=FrKWiRv254g&list=PLJV_el3uVTsPy9oCRY30oBPNLCo89yu49&index=10" (CNN - Convolutional Neuro network) it's good, clearly explained CNN
 
-	   ==> TODO:  to watch the 2 videos of RNN (Recurrant Neuro Network)  --- links from Mr's Li's channel !
+     ==> TODO:  to watch the 2 videos of RNN (Recurrant Neuro Network)  --- links from Mr's Li's channel !
 
 
 
@@ -292,41 +292,41 @@ TODO:
 View and event handling
 
   when an event raised, it goes through 
-  				Activity->Window->View 
+          Activity->Window->View 
 
   If view's onTouchEvent returns "false", ie, not handling such event, and then it will bubble up to Window, if still not handled, and then bubble up to Activity to be handled.  (similar to emergency handling, worker handles it first, if not able to, and then pass up to supervisor...) 
 
 
     1. one touch event, 
 
-	   *)  boolean dispatchTouchEvent(MotionEvent ev)
+     *)  boolean dispatchTouchEvent(MotionEvent ev)
 
-	   			"dispatch", if event dispatched to current-View, this method is called; and returns current-View's onTouchEvent and child view's dispatchTouchEvent method's value.
+           "dispatch", if event dispatched to current-View, this method is called; and returns current-View's onTouchEvent and child view's dispatchTouchEvent method's value.
 
-	   *)  boolean onInterceptTouchEvent(MotionEvent ev)
+     *)  boolean onInterceptTouchEvent(MotionEvent ev)
 
-	   			"used inside view's dispatchTouchEvent method - ie the above one", 
+           "used inside view's dispatchTouchEvent method - ie the above one", 
 
-	   *) boolean onTouchEvent(MotionEvent ev)
-
-
-				used in dispatchTouchEvent method; used to handle that event, 
+     *) boolean onTouchEvent(MotionEvent ev)
 
 
-	In summary, 
+        used in dispatchTouchEvent method; used to handle that event, 
 
-		public boolean dispatchTouchEvent(MotionEvent ev) {
-			boolean consume = false;
 
-			if (onInterceptTouchEvent(ev)) {
-				consume = onTouchEvent(ev);
-			} else {
-				consume = child.dispatchTouchEvent(ev);		// notice the child 
-			}
+  In summary, 
 
-			return consume;
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+      boolean consume = false;
 
-		}
+      if (onInterceptTouchEvent(ev)) {
+        consume = onTouchEvent(ev);
+      } else {
+        consume = child.dispatchTouchEvent(ev);    // notice the child 
+      }
+
+      return consume;
+
+    }
 
 
 
@@ -336,12 +336,12 @@ View and event handling
       "ADB"  -- Android Debug Bridge   
 
 
-	       Goals / Motivations :   1) under the hood,  2) automation / batch processing -- kind like the Tomcat script auto dispatching
+         Goals / Motivations :   1) under the hood,  2) automation / batch processing -- kind like the Tomcat script auto dispatching
 
 
       adb devices   (after phone set usb debug, https://developer.android.com/studio/command-line/adb.html,  and connected to phone, and after brew install adb -- check google;   and now showed the physical phone connected via adb !)
 
-	  note, not checked android_sdk/platform-tools yet ...
+    note, not checked android_sdk/platform-tools yet ...
 
 
   ==>  if adb NOT working, it's good to restart adb server
@@ -351,56 +351,56 @@ View and event handling
 
     ==>  The Wi-Fi connect (adb) is very useful (way of setting is also documented above)
 
-	:build-tools $ adb tcpip 5555
-	restarting in TCP mode port: 5555
-	:build-tools $ adb connect 192.168.1.2
-	connected to 192.168.1.2:5555
-	:build-tools $ 
+  :build-tools $ adb tcpip 5555
+  restarting in TCP mode port: 5555
+  :build-tools $ adb connect 192.168.1.2
+  connected to 192.168.1.2:5555
+  :build-tools $ 
 
 
-	--> verifying:
+  --> verifying:
 
-	adb devices
-	List of devices attached
-	192.168.1.2:5555	device
+  adb devices
+  List of devices attached
+  192.168.1.2:5555  device
 
 
     --> Query for device
-	adb devices -l
-	 
-	  192.168.1.2:5555       device product:klteuc model:SAMSUNG_SM_G900A device:klteatt
+  adb devices -l
+   
+    192.168.1.2:5555       device product:klteuc model:SAMSUNG_SM_G900A device:klteatt
 
 
 
     ==>  send commands to a specific device
 
-	 a) first build APK from Android Studio
-	 b) find the APK file
+   a) first build APK from Android Studio
+   b) find the APK file
 
-	 find . -name *apk
-	 ./app/build/outputs/apk
-	 ./app/build/outputs/apk/app-debug.apk
-
-
-	 c) install it on specific device, via
-
-	 adb -s 192.168.1.2:5555 install ./app/build/outputs/apk/app-debug.apk
-	 ./app/build/outputs/apk/app-debug.apk: 1 file pushed. 0.4 MB/s (1544402 bytes in 3.523s)
-	 	pkg: /data/local/tmp/app-debug.apk
-		Failure [INSTALL_FAILED_ALREADY_EXISTS]
+   find . -name *apk
+   ./app/build/outputs/apk
+   ./app/build/outputs/apk/app-debug.apk
 
 
-		
+   c) install it on specific device, via
 
-		c-2) after deleting the existing apk file from device
+   adb -s 192.168.1.2:5555 install ./app/build/outputs/apk/app-debug.apk
+   ./app/build/outputs/apk/app-debug.apk: 1 file pushed. 0.4 MB/s (1544402 bytes in 3.523s)
+     pkg: /data/local/tmp/app-debug.apk
+    Failure [INSTALL_FAILED_ALREADY_EXISTS]
 
-		and install it again, it went to success
+
+    
+
+    c-2) after deleting the existing apk file from device
+
+    and install it again, it went to success
 
 
-		adb -s 192.168.1.2:5555 install ./app/build/outputs/apk/activitiesCalling.apk
-		./app/build/outputs/apk/activitiesCalling.apk: 1 file pushed. 0.4 MB/s (1544402 bytes in 3.383s)
-			pkg: /data/local/tmp/activitiesCalling.apk
-			Success
+    adb -s 192.168.1.2:5555 install ./app/build/outputs/apk/activitiesCalling.apk
+    ./app/build/outputs/apk/activitiesCalling.apk: 1 file pushed. 0.4 MB/s (1544402 bytes in 3.383s)
+      pkg: /data/local/tmp/activitiesCalling.apk
+      Success
 
 
 
@@ -410,29 +410,29 @@ View and event handling
     ==>  set port forwarding  (from local port to device port, vice versa)  ,  not tried, but in the doce 
 
 
-	-->  Copy files from / to device
+  -->  Copy files from / to device
 
-	adb pull "remote" "local"
+  adb pull "remote" "local"
 
-	adb push "local"  "remote" 
-
-
-	==>  shell command
+  adb push "local"  "remote" 
 
 
-		adb -s 192.168.1.2:5555 shell ls -l
-		drwxr-xr-x root     root              2014-03-30 03:40 acct
+  ==>  shell command
+
+
+    adb -s 192.168.1.2:5555 shell ls -l
+    drwxr-xr-x root     root              2014-03-30 03:40 acct
 
 
 
 
-	==> call "Activity Manager" (am)
+  ==> call "Activity Manager" (am)
 
-		adb -s 192.168.1.2:5555 shell am start -a android.intent.action.VIEW
-		Starting: Intent { act=android.intent.action.VIEW }
+    adb -s 192.168.1.2:5555 shell am start -a android.intent.action.VIEW
+    Starting: Intent { act=android.intent.action.VIEW }
 
 
-		NOTE, there was a small pop-up on PHONE !  (the activity)
+    NOTE, there was a small pop-up on PHONE !  (the activity)
 
 
         
@@ -440,20 +440,20 @@ View and event handling
    ==> call "Package Manager" (pm)
 
        adb -s 192.168.1.2:5555 shell pm uninstall com.iexpress.hello.oneactivityonpauserunsbeforeanotheractivityonresume
-	   Success
+     Success
 
-	   after that, the APP got removed .
+     after that, the APP got removed .
 
 
    ==> take snapshot 
 
        adb -s 192.168.1.2:5555 shell 
-	   shell@klteatt:/ $ screencap /sdcard/taken.from.adb.png
-	   shell@klteatt:/ $ ls /sdcard/taken*
-	   /sdcard/taken.from.adb.png
-	   shell@klteatt:/ $ ls -l /sdcard/taken*                                         
-	   -rwxrwx--- root     sdcard_r   397467 2017-08-02 00:38 taken.from.adb.png
-	   shell@klteatt:/ $ 
+     shell@klteatt:/ $ screencap /sdcard/taken.from.adb.png
+     shell@klteatt:/ $ ls /sdcard/taken*
+     /sdcard/taken.from.adb.png
+     shell@klteatt:/ $ ls -l /sdcard/taken*                                         
+     -rwxrwx--- root     sdcard_r   397467 2017-08-02 00:38 taken.from.adb.png
+     shell@klteatt:/ $ 
 
 
 
@@ -461,18 +461,18 @@ View and event handling
 
       adb -s 192.168.1.2:5555 shell
 
-	  screenrecord /sdcard/recorded.from.adb.mp4
+    screenrecord /sdcard/recorded.from.adb.mp4
 
-	  shell@klteatt:/ $ screenrecord /sdcard/recorded.from.adb.mp4
-	  ^Cshell@klteatt:/ $ ls -l /sdcard/record*
-	  -rwxrwx--- root     sdcard_r  4291147 2017-08-02 00:41 recorded.from.adb.mp4
-	  shell@klteatt:/ $
+    shell@klteatt:/ $ screenrecord /sdcard/recorded.from.adb.mp4
+    ^Cshell@klteatt:/ $ ls -l /sdcard/record*
+    -rwxrwx--- root     sdcard_r  4291147 2017-08-02 00:41 recorded.from.adb.mp4
+    shell@klteatt:/ $
 
 
-	  --> get the recorded video local macbook pro,  and play here
+    --> get the recorded video local macbook pro,  and play here
 
-	  adb -s 192.168.1.2:5555 pull /sdcard/recorded.from.adb.mp4
-	  /sdcard/recorded.from.adb.mp4: 1 file pulled. 0.4 MB/s (4291147 bytes in 11.082s)
+    adb -s 192.168.1.2:5555 pull /sdcard/recorded.from.adb.mp4
+    /sdcard/recorded.from.adb.mp4: 1 file pulled. 0.4 MB/s (4291147 bytes in 11.082s)
 
 
 
@@ -480,10 +480,10 @@ View and event handling
 
      Requires Android 7.0 (API level 24)
 
-	 <-- I have Android 5.1, hence not able to do it
+   <-- I have Android 5.1, hence not able to do it
 
-	  adb -s 192.168.1.2:5555 shell cmd package dump-profiles com.iexpress.hello.oneactivityonpauserunsbeforeanotheractivityonresume
-	  /system/bin/sh: cmd: not found
+    adb -s 192.168.1.2:5555 shell cmd package dump-profiles com.iexpress.hello.oneactivityonpauserunsbeforeanotheractivityonresume
+    /system/bin/sh: cmd: not found
 
 
 
@@ -492,7 +492,7 @@ View and event handling
      adb -s 192.168.1.2:5555 shell ls /system/bin     <--- check all commands
 
 
-	 adb -s 192.168.1.2:5555 shell dumpsys            <---  dump ALL android device stuff on local macbook pro screen !
+   adb -s 192.168.1.2:5555 shell dumpsys            <---  dump ALL android device stuff on local macbook pro screen !
 
 
 
@@ -511,46 +511,46 @@ View and event handling
 
    2. chapter 3,  3.5 - view scrolling conflits
 
-      *)  parent container, once it gets events, it will handle all of them, will not pass to children containers.
+    *)  parent container, once it gets events, it will handle all of them, will not pass to children containers.
 
-	  *)  
+    *)  
 
-	  <--  need to revisit, not even had the conflict; not into this subject right now.
+    <--  need to revisit, not even had the conflict; not into this subject right now.
 
 
    3. Chapter 4. view under the hood 
 
       ViewRoot,  DecorView ,  WindowManager 
 
-	  
-	  ViewRoot root = new ViewRootImpl(view.getContext(), display);
-	  root.setView(view, wparams, panelParentView);
+    
+    ViewRoot root = new ViewRootImpl(view.getContext(), display);
+    root.setView(view, wparams, panelParentView);
 
 
 
       *) view rendering:   from ViewRoot::performTraversals() -> ::measure() -> ::layout() -> ::draw()    -->  drawing the view 
 
-	  *) DecorView :  
+      *) DecorView :  
 
 
       *) MeasureSpec :  SpecMode, SpecSize 
 
-	        LayoutParams.MATCH_PARENT   
-			LayoutParams.WRAP_CONTENT
+          LayoutParams.MATCH_PARENT   
+          LayoutParams.WRAP_CONTENT
 
 
 
-		ViewGroup's measure conduct on its children views' measure 
+    ViewGroup's measure conduct on its children views' measure 
 
 
-	  *) Layout :  setFrame set mLeft, mRight, mTop, and mBottom for View.
+    *) Layout :  setFrame set mLeft, mRight, mTop, and mBottom for View.
 
 
-	  *)  Draw:  
-	            background.draw(canvas)
-				onDraw  (draw self)
-				dispatchDraw (draw children)
-				onDrawScrollBars
+    *)  Draw:  
+        background.draw(canvas)
+        onDraw  (draw self)
+        dispatchDraw (draw children)
+        onDrawScrollBars
 
 
 
