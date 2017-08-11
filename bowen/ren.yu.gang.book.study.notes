@@ -581,6 +581,25 @@ View and event handling
 	 also need to do the tic-tac-toe
 
 
+8/8/17 (Tue)
+
+  1. Did the small project on page 115 - from the book: Android from novice to expert
+
+     a couple of bugs, not checked in code yet.
+
+
+8/10/17 (Thr) 
+
+  1. Yesterday, did improved the code created on 8/8/17;  
+  2. Improved more on this find-egg-with-chick game, 
+  3. Uploaded it to GitHub : https://github.com/jwang1/androidTableLayoutImageViewFindChickInEgg
+  4. Added thoughts, description for the design, implementation, and algorithm of this game.  
+  5. Discussed with XL about it, and got the idea of improving the randomization algorithm, make it o(1), instead of current o(n) - looping over the image array.
+
+
+  6.  TODO:  improve the algorithm, and then continue the tic-tac-toe project.
+
+
 
 
 
