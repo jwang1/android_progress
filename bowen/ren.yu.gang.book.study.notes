@@ -616,3 +616,23 @@ View and event handling
   1. trying android internationalization;  moving text to resource string.xml.
 
 
+8/21/17 (Mon)
+
+  1. Added I18N for "Hatch Egg" game.
+
+  2. TODO:  Add descriptions for this app, so that when users search "Google Plays", they will get some ideas about what this game 
+            is about, who are the idea players, what ages would be, and a little bit things in "About" developer 
+			(a4a - automation for all; automation for a...) 
+
+
+
+			How about we collect some downloads?   Perhaps "Google Play" can do that.
+
+			And then, get an account, publish it first.
+
+
+  3. TODO:  Add the Ads part,  and the AI ads ...  based on user's interests.
+
+
+
+
