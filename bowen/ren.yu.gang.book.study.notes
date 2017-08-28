@@ -634,5 +634,15 @@ View and event handling
   3. TODO:  Add the Ads part,  and the AI ads ...  based on user's interests.
 
 
+8/27/17 (Sun)
+
+  1. ToDo:  still need to publish the app
+
+  2.        one thing to do, is to make a scoreboard, and a flash pop-up, for the score/game, and total
+            regarding the score board, let's never deduct points;  and make the points 150 per win / correct guess.
+			so, we can tell how much the user played.  
+
+  3.	    where to save the total score ?  
+
 
 
