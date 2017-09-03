@@ -646,3 +646,98 @@ View and event handling
 
 
 
+9/2/17 (Sat)
+
+  1. Kotlin notes:  when "Kotlin in Action" book came  --  
+  
+  the feeling is:  Kotlin is just Java in C#,  like C# in Java at the beginning.  (p5, "type inference"  :  val x = 1) 
+
+  Kotlin Compiler :  written in Java and Kotlin, and moving toward more Kotlin;  it is opensource?  GitHub https://github.com/JetBrains/kotlin
+
+    
+	 a) http://try.kotl.in    (try Kotlin online)
+
+	    or 
+
+		https://try.kotlinlang.org/#/Examples/Hello,%20world!/Simplest%20version/Simplest%20version.kt
+
+	 b) official Kotlin forumns :  https://discuss.kotlinlang.org
+
+	 c) slack chat:   http://kotlinlang.slack.com
+
+	 d) Kotlin tag on stack overflow:   http://stackoverflow.com/questions/tagged/kotlin
+
+	 e) Kotlin Reddit :  www.reddit.com/r/Kotlin
+
+
+
+
+  2. Compiling Kotlin code
+
+     kotlinc <source file or dir> -include-runtime -d <jar name> 
+
+	 execute code
+
+	 java -jar <jar name> 
+
+
+
+
+  3. programming language
+
+     statement vs expression
+
+	   expression - has a value; can be part of another expression.  In Kotlin,  if (a > b) is an expression,  has value;  but in Java, it is just a statement .
+
+	   statement  - not having value,
+
+
+
+  4. Kotlin special :
+
+     val  - Immutable reference;  cannot be re-assigned after initialization;  corresponding to Java's final variable
+	 var  - mutable reference; can be re-assigned after initialization
+
+     string template (p22) -  borrowed Unix shell scripting syntax:   "hello, $name"   -- here $name will be evaluated
+	       - it is called template, sth like Velocity template;  Front-end mustasche (html with mustasche template, evaluating)
+
+
+     classes, Properties  (this is more like C# stuff, where C# evolved from Java,  the Java getter and setter really .... just ... ;  and the reason Java did not change to C#'s properties, was simple ?....   not want to be "famed" as copying C# ?)
+
+	 "var"  stuff is another C# evolvement from Java  
+
+
+
+     Kotlin:  can put Multiple classes in one file, and choose any name for that file.
+
+	          it is still good to stick to Java package and class file structure, so that easier for Java+Kotlin mixing project;  
+
+			  but ?    would that be another bad thing like Java's Generic (to backward compatible, sacrifized generic types - using the type erasure - compile time;  really causing much Java Generic ....) 
+
+
+
+     enum class :    Kotlin has to use both words; because enum has special meaning in Kotlin.
+
+
+
+     switch can be on "enum class", also objects, or setOf, or more ... ;   Java's NOT to change such a way,  (or, those 1996 Java stuff prevent such changes from happening...)  
+
+	
+	 "when" keyword is good practice, perhaps some features from other programming lang I did not know.
+
+
+
+     combining "type checks" and "casting"
+
+
+	 "is"  compared to Java's instanceof  
+
+
+
+    for (in in 100 downTo 1 step 2) {
+	  ...
+	}
+
+
+
+
