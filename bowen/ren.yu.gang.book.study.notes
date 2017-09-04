@@ -763,3 +763,44 @@ View and event handling
 
 
 
+   3. Kotlin continued:
+
+      3.1 @JvmOverloads  - instructs Kotlin compiler to generate Java overloaded methods, 
+
+	  3.2 "open" - Kotlin defaults class and methods are default by "final";  while Java default by "open" - class can be inherited 
+	         - Kotlin's abstract method of abstract class ;   both are always "open", hence, no need to explicitly use "open" key word, but they need "abstract" keyword. 
+
+	     the relationship:
+
+		 "final"     cannot be overridden
+		 "open"      can be overridden
+		 "abstract"  must be overridden
+		 "override"  Overrides a memeber in superclass or interface;  overridden member is open by default, if not marked "final"
+
+
+
+      3.3 "visibility modifier" :  public by default in Kotlin  (but in Java, the default is "package" access...)
+	    
+		                      Kotlin has not "package" usage;  but it has "internal" - meaning "visible inside a module - an IntelliJ concept"  
+
+		 "public (default"   visible everywhere
+		 "internal"          visible in a "module" - IntelliJ stuff (that is beyond "package" level -  but not "project" level)
+		 "protected"         visible in subclasses
+		 "private"           visible in a class only
+
+
+		 public/protected/private modifiers in Kotlin are preserved when compiling to Java bytecode.  
+
+
+		 in Java, no way to define "private" class;  the default is package-private level (need to understand more on this)
+
+		 Kotlin's "internal" will be "public" in Bytecode for JVM.
+
+		 In Kotlin, "outer" class doesn't see "private" members of its "inner" (or nested) classes in Kotlin.
+
+
+
+     3.4 "inner and nested classes" :  nested by default
+
+
+
