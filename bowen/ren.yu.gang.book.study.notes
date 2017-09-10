@@ -808,6 +808,10 @@ View and event handling
 
      1.  Continue "Kotlin" 
 
+
+	   1.1 Functions and classes
+
+
 	     "sealed" class,   cannot be inherited?
 
 		 "primary c-tor,  and initializer blocks inside c-tor"  
@@ -843,6 +847,27 @@ View and event handling
 
 		"object" keyword;  declaring a singleton, an easy way,  with class definition
 
+
+
+		"companion" keyword usage:  --- Need to revisit ,  not concentrate when reading it.
+
+          "classes in Kotlin cannot have static memebers" ,  Kotlin relies on package-level functions . 
+		     "top-level" functions are recommended, but they cannot access class' private members; 
+
+			 companion objects (deonoted by "companion" keyword) 
+
+
+
+		"annonymous inner classes"  
+		    a) Java's annonymous inner class can only extend 1 class or implement 1 interface;
+			b) Kotlin's can implement multiple or none interfaces.
+
+
+        
+
+		1.2.  Lambdas and Collections
+
+		     
 		    
 
 
@@ -863,4 +888,13 @@ View and event handling
 
 		 2.9.  ^^^  the above, ACTION.
 
+
+9/5/17 (Tue) -
+
+  1. Kotlin
+
+     1.1  Lambdas and Collections
+
+	   
+     
 
