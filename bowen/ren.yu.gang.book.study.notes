@@ -895,6 +895,80 @@ View and event handling
 
      1.1  Lambdas and Collections
 
+
+9/9/17 (Sat) - 
+
+  1. Kotlin
+    
+	 1.1 Kotlin with high order functions
+
+	    1.1.1  "inline" functions, compiler will replace every call to the function with "actual code implementing that function".  - similar to C macro or typedef in C++ .
+
+	 1.2 Kotlin with Generics - almost same as Java's ;  compile-time generics, erased after compilation; no generics-available-at-run-times;
+
+	     Note, for Python, dynamic programming lang,  itself is a generic type programming, using "duck type";  when programmers 
+		    coded the function / class,  having the specific "type" in mind,  and at runtime, that type is assumed existed.
+
+
 	   
-     
+9/17/17 (Sun) 
+
+  1. trying to get into Python, because deep learning stuff really needs the interactive scripting (python) used a lot
+
+  2. Python Applications Programming  (3rd Edition) - Wesley J. Chun
+
+  ***chapter 1.  Regular Expression
+
+    2.1  "re" module aligns to Perl regex.
+	2.2  match(...)
+	2.3  search(...)
+
+    2.4  RegEx "groups";  the following, 2 parenthese; 2 sub-groups.
+	
+	     m = re.match('(\w\w\w)-(\d\d\d)', 'abc-123')
+
+	     m.groups()
+		 
+		 m.group()
+		 m.group(0)
+		 m.group(1)
+		 m.group(2)
+		 m.group(3) <===  no such group;  index out of bound
+
+
+		 two sub-groups
+
+		 m = re.match('(a(b))', 'ab')
+
+		 m.groups()
+
+
+
+    2.5  RegEx findall vs finditer
+
+	     s = 'This and that'
+
+		 re.findall(r'(th\w+) (th\w+)', s, re.I)		# re.I  flag to ignore cases; case incensitive
+
+		 # finditer ,  can use __next__() to iterate  - note, python-2 just next(); but python-3 changed.
+		 #     as shown in https://stackoverflow.com/questions/1073396/is-generator-next-visible-in-python-3-0 
+		 #        Special methods like __init__() and __del__ all have double underscores 
+
+
+		 re.finditer(r'(th\w+) (th\w+)', s, re.I).__next__().groups()   # returns   ('That', 'this')
+
+
+    2.6  sub() and subn() 
+
+	    re.sub('X', 'Mr. Perf', 'attn: X\n\nDear X\n')
+
+
+	    re.subn('X', 'Mr. Perf', 'attn: X\n\nDear X\n')   # will return number of substitutes ...
+
+
+
+
+
+
+
 
