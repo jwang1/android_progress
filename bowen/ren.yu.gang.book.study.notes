@@ -966,9 +966,50 @@ View and event handling
 	    re.subn('X', 'Mr. Perf', 'attn: X\n\nDear X\n')   # will return number of substitutes ...
 
 
+    2.7  \N   - group number N
+
+	    # here is how to swap the mm with dd 
+
+		re.sub(r'(\d{1,2})/(\d{1,2}/(\d{2}|\d{4})',  r'\2/\1/\3',  '2/20/91')   # returns  20/2/91
 
 
 
+
+9/18/17 (Mon) 
+
+  1. Quickly scanned "JavaScript Application Design" - Nicolas Bevacqua 
+    
+	   It's a book on several JavaScripts Libraries :  Grunt, NodeJS, a little Less, CommonJS, RequireJS, callbacks -> PromiseJS, Testing, and REST ...;  
+
+	   did mention some stuff on deployment, 
+
+
+  2. Back to Python study:
+
+    2.1  Welsley J Chun's book P16 
+
+	     "extension notation" :   Look ahead,  or look behind   
+
+		 (?= (?:\d{5}|[A-Z]{2}))
+
+
+		 a)  (?:\w+\.)*    ---  string that end with a dot, and such matches are neither saved for use nor retrieval later.
+
+		 b)  (?#comment)   ---  No matching here, just commenting
+
+		 c)  (?=.com)      ---  only do a match if ".com" follows, do not consume any of the target string.
+
+		 d)  (?!.net)      ---  only do a match if ".net" does NOT follow.
+
+		 e)  (?<=800-)     ---  only do a match if string is preceded by "800-", presumably for phone numbers; and do NOT consume the input string.
+
+		 f)  (?<!192\.168\.) --- only do a match if string is NOT preceded by "192.168.", presumably to filter out a group of class c IP addresses.
+
+		 g)  (?(1)y|x)      ---  if a matched group 1 (\1) exists, match against y;  otherwise, match agains x
+
+
+
+		 so,  the above (?= (?:\d{5}|[A-Z]{2})) ---  uses item a, c .
 
 
 
