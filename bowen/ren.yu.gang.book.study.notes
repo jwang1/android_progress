@@ -1011,5 +1011,13 @@ View and event handling
 
 		 so,  the above (?= (?:\d{5}|[A-Z]{2})) ---  uses item a, c .
 
+		    so, in plain English, the above means,  for any string, starting with a space, followed by 5-digits, or followed by 2-uppercase-letters.
+			that is,  " CA",  " 94023", 
+
+
+    2.2  split()
+
+	     re.split(', |(?= (?:\d{5}|[A-Z]{2}))',  'Mountain View, CA 94040')   # creates  ('Mountain View', 'CA', '94040')
+
 
 
