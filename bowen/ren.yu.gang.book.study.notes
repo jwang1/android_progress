@@ -1173,6 +1173,35 @@ View and event handling
 		returns  ['sales', 'eng', 'admin']
 
 
+        another example - finditer
+
+		# note the "for e in "   ,  
+		#  also not unstand   '%s@aw.com'  %   e.group(1)    ;     looks like  group(1)  is the (?!noreply|postmaster)  
+		#  
+		['%s@aw.com' %  e.group(1) for e in \
+		re.finditer(r'(?m)^\s+(?!noreply|postmaster)(\w+)',
+
+		'''
+		   sales@php.com
+		   postmaster@php.com
+		   eng@php.com
+		   noreply@php.com
+		   admin@php.com
+		''')]
+
+
+        the above,  returns    ['sales@aw.com',  'eng@aw.com',  'admin@aw.com']
+
+
+
+
+
+   1.1.8   "raw string"  --  single backspace,  double backspace
+
+       \b  - is a regex ,  word boundary 
+	   \\b  - raw string,  ie,  "\b" literal 
+
+
 
 
 
