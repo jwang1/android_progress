@@ -1020,4 +1020,159 @@ View and event handling
 	     re.split(', |(?= (?:\d{5}|[A-Z]{2}))',  'Mountain View, CA 94040')   # creates  ('Mountain View', 'CA', '94040')
 
 
+9/30 (Sat) 
+ 
+  1.  Python Applications Programming - Welsley J. Chun 
+
+    1.1 P31 Extension Notations  (?...)
+	    
+      1.1.1  (?i)    <-- ignore cases
+
+		re.findall(r'(?i)yes',  'yes? Yes. YES!!!')  
+
+
+      1.1.2  (?m)    <-- multiple lines
+
+	    re.findall(r'(?im)(^th[\w ]+)', """
+		    This line is the first.
+			another line,
+			that line, it's the best
+			""")
+
+
+		the above returned  ['This line is the first', 'that line']      <== note the symbols are not included
+
+
+
+      1.1.3 (?s)   <-- indicate dot (.) can represnet \n character;  usually such dot (.) represents all-chars exception \n
+
+	     re.findall(r'(th.+)', '''
+		    This line is the first
+			this is second
+			this is third
+			''')
+
+		returns ['this is seond', 'this is third']
+
+
+		now,  notice the (?s)
+
+		re.findall(r'(?s)(th.+)', """
+		    This line is first
+			this is second
+			this is third
+			''')
+
+		returns ['this is second\nthis is third\n']     <-- since the match includes \n ;   there is 1 result, instead of 2.
+
+
+	 1.1.4 (?x)  <-- lets users create more human-readable regex, by suppressing whitespace characters within regexes (except those in character classes or those that are backslack-escaped).   Also, has/comment/octothorpe symbols (#) can also be used to start a comment, as long as they're not within a character class backslash-escaped.
+
+
+      
+    Verbose
+
+
+	    re.search(r'''(?x)
+		    \((\d{3})\)      # area code
+			[ ]              # space ;   note, this white space in [] is NOT escaped, counted in regex; but, spaces between ] and #  are supprsessed.
+            (\d{3})          # prefix
+			-                # dash
+			(\d}{4})         # endpoint numbers
+			''',  '(860) 555-1234').groups()
+
+	    returns ['860', '555', '1212']     <--  note the above is looking for groups()
+
+
+    1.1.5 (?:)   <--  lets users to "GROUP" parts of regex, but does NOT save them for future retrieval or use.  It's handy when you donot want superfluous matches that are saved and never used!
+
+	    re.findall(r'http://(?:\w+\.)*(\w+\.com)', 
+		    'http://google.com http://www.google.com http://code.google.com')
+
+		returns ['http://google.com', 'http://www.google.com', 'http://code.google.com']
+
+
+   1.1.6  (?P<name>)  and (?P=name)     <-- the formal saves matches by using a name id, rather than using increasing numbers - starting from 1 to N  - which is retrieved later by using \1, \2, ..., \N.
+
+     similar to C# and Kotlin's named-parameters ,  vs  positional-parameters 
+
+	     re.sub(r'\((?P<areacode>\d{3})\) (?P<prefix>\d{3})-(?:\d{4})',
+		     '(\g<areacode>) \g<prefix>-xxxx', '(880) 555-2312')
+
+		returns   ['(880) 555-xxxx']      <--  note the above used named-parameters, also used (?:) do not remember that-Group because the group not used later.
+
+
+
+    Another example: 
+
+
+	   bool(re.match(r'''(?x)
+
+	     # match (800) 555-1212, save areacode, prefix, number
+		 \((?P<areacode>\d{3})\) (?P<prefix>\d{3})-(?P<number>\d{4})
+
+		 # space
+		 [ ]
+
+		 # match 800-555-1212
+		 (?P=areacode)-(?p=prefix)-(?P=number)
+
+		 # space
+		 [ ]
+
+		 # match 18005551212
+		 1(?P=areacode)(?P=prefix)(?P=number)
+
+	   ''', '(800) 555-1212 800-555-1212 18005551212'))
+
+
+
+	returns True      <-- note the above used  (?P<name>)  (?P=name)   and (?x) verbose
+
+
+
+
+
+   1.1.7   (?=...)  and (?!...)   <-- lookahead  , performing lookahead in the target string without actually consuming those characters.      (?=...) is "positive" lookahead assertion;  (?!...) is "negative".
+
+    
+	   re.findall(r'(?x)
+	     # positive assertion, lookahead first name of a person whose last name is ' van Rossum'
+		 \w+(?= van Rossum)',
+
+		 '''
+		   Guido van Rossum
+		   Tim Peters
+		   Alex Martelli
+		   Just van Rossum
+		   Ray Hettinger
+		 ''')
+
+		returns ['Guido', 'Just']
+
+
+
+
+       another example  -- negative lookahead
+
+
+        re.findall(r'(?x)
+		  # negative assertion - (?!...)   
+		  # also used (?m) --- multiple line -- the multil-lines of the targeted-searching-text, 
+		  (?m)^\s+(?!noreply|postmaster)(\w+)',
+
+		  '''
+		    sales@phptr.com
+			postmaster@phptr.com
+			eng@phptr.com
+			noreply@phptr.com
+			admin@phptr.com
+		  ''')
+
+
+		returns  ['sales', 'eng', 'admin']
+
+
+
+
 
