@@ -1202,6 +1202,46 @@ View and event handling
 	   \\b  - raw string,  ie,  "\b" literal 
 
 
+10/7/17 (Sat)
+
+ 1. Using Python for a game
+
+The game :
+
+1. swap any letter with its adjustant
+2. so that there will be at least "3" same letters on the same Row, or same Column
+3. if there are no "3" or more letters on the same row or same column, nothing will happen except the swap itself
+4. however, if there are "3" or more same letters on the same Column;  the above letters (if exist), will sink down 3 letters; 
+   and, those "collected" letters (3 or more) will be filled by letters above them on the same column, 
+   and, the positions after sink, will be filled by "Random" letters.
+
+5. if "3" or more same letters are on the same ROW, and then, the rows above that row, with the same column of that row, will be sinked down.  Random generated letters will fill up the first row with the column of 'that row'.   
+
+6. what if the "3 or more" same letters are on the same row, and also,  "3 or more" same letters on some columns !
+
+
+   e b c A f i e g i k m
+   d A A A A b c d a a e     <note 4 A on 2nd row>
+   g i m A g i c e j o x
+
+         ^
+		 |
+		 3 A on 4th column   (note, if 2nd Row got processed first;  and then, this 4th Column may not have adjacent 3-or-more same letters)
+
+
+7. Recursion -->  or loops
+
+   1) brute-force : 
+
+      
+	  for each ROW,  
+
+	     starts from column 0,  
+
+
+
+   2) improving 
+
 
 
 
