@@ -1307,8 +1307,81 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 
 
+  3. Comparing frameworks:  including SciKit-learn, 
+
+  https://www.youtube.com/watch?v=MDP9FfsNx60  (deep learning frameworks (SciKit Learn, TensorFlow, Theano, Keras, and Caffe))
+
+    1) SciKit does NOT have neuro stuff;  and what SciKit has, TensorFlow has it all
+
+	2) Caffe - production grade, but not easy to use, not much modularity ;  and Caffe architect went to TensorFlow now.
+
+	3) Keras - on top of Theano and TensorFlow, and Keras uses the OOD;  --  more generic, all-purpose;  having good documentation
+	  
+	     But, Keras lacks of Performance ...
 
 
+    4) Theano vs TensorFlow -
+
+	   Theano has better docs, and been there for a while;  out performance TensorFlow on a single GPU;
+
+	   But, TensorFlow outperforms Theano on Multi-GPUs (for parallel execution accross 
+
+
+	   Theano supports Windows (MS windows);  TensorFlow not yet.
+
+
+	   * Right now, Keras+Theano performs better than Keras+TensorFlow; 
+
+	     But, the person created Keras works for Google. 
+
+	 
+    5) TF Learn
+
+	   is the ONE:   TF Learn is basically Keras for TensorFlow, but Optimized for TensorFLow !  (because Keras+TensorFlow is NOT good on performance;   hence,  TF Learn !)
+
+
+
+
+
+  4. INSTALL TF Learn on local 
+
+
+     http://tflearn.org/installation/
+
+	 I use Python 3 (pip3),  so
+
+	 and also use CPU,  not GPU 
+
+
+  To install TensorFlow
+
+	 # Mac OS X, CPU only, Python 3.4 or 3.5:
+	 $ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.1.0-py3-none-any.whl
+
+
+	 pip install -U $TF_BINARY_URL
+
+
+  To install TF learn:
+
+      pip install -U git+https://github.com/tflearn/tflearn.git
+
+
+
+  Solve h5py issue (hdf5 is not supported on this machine (please install/reinstall h5py for optimal experience))
+
+
+      pip install -U h5py
+
+
+
+
+
+  5. Verify (TF learn, and TensorFlow) installations
+
+
+  >>> import tflearn
+  >>> import numpy as np
 
 
 
