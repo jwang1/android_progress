@@ -1259,5 +1259,61 @@ The game :
 
 
 
+10/16/17 (Mon)
+
+
+  0. Looks like I have all the Python libraries installed : 
+
+jwang:build-tools jwang$ python
+Python 3.4.3 (v3.4.3:9b73f1c3e601, Feb 23 2015, 02:52:03) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import numpy
+>>> import matplotlib.pyplot
+>>> import scipy
+>>> import sklearn
+>>> 
+
+
+
+  1. Prepare for the Training course:
+
+     install SciKit-learn :
+
+
+
+	# install the numpy, scipy,  matplotlib, pytest, scikit-learn
+
+	 pip install -U numpy scipy matplotlib pytest scikit-learn 
+
+
+
+
+  2. test  matplotlib !
+
+# following from stackoverflow:  (36470343) 
+
+>>> import numpy as np
+>>> import matplotlib.pyplot as plt
+>>> x = np.linspace(0, 10)
+>>> y = x**2
+>>> plt.plot(x, y)
+[<matplotlib.lines.Line2D object at 0x108570c88>]
+>>> plt.show()
+
+
+# note, the plot (graph) will show.
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
