@@ -1385,6 +1385,88 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 
 
+ 
+10/17/17 (Tue) - Learn as if you will leave forever.
+
+Check his video: https://www.youtube.com/watch?v=BMT7FMwOIKc&list=PL2-dafEMk2A6a9LNzkeQv7QIDUWMNEfJi
+
+there are some Neuro Network, etc.
+
+
+
+
+***********************************************************
+********  Almost 3 weeks onto company work  ***************
+***********************************************************
+
+
+11/11/2017 (Sat)  
+
+TODO: 
+  1. get Anuko on AWS  (RedHat OpenShift deleted old VM, all data and the app, and everything were GONE!)
+  2. take notes part: on Anuko
+  3. the SciKit-Learn part
+  4. Mr Lynch part 
+  5. Kids Math, literature
+
+
+Actions:
+
+  1. AWS:
+
+     1.1 Install AWS Command Line Interface
+
+	      https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html?icmpid=docs_elasticbeanstalk_console
+
+     1.2 On my local,  just source the AWS EB everytime, as below:
+
+	      alias aws='cd ~/Library/Python/3.4/bin'
+
+		  export PATH=~/Library/Python/3.4/bin:$PATH
+
+		  Verify the installation:
+
+		  eb --version
+
+
+	 1.3 the ASW EB CLI (command line interface) usage:
+
+	     https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb3-cmd-commands.html
+
+
+
+    1.4 sign in  
+
+	   1.4.1  First, from AWS Console Web page,  go to "iam"  (Identity and Access Management)
+
+              *** create an account, to get "access key" and "secrete access key"  which can be used in EB-CLI (from local machine, command line)
+
+
+		From "AWS Console" on Web,  from Elastics Beanstalk ,  searching  "Access management",   and then,  from there create a user 
+
+		   https://console.aws.amazon.com/iam/home?region=us-east-1#/users$new?step=final&accessKey&login&userNames=aws&passwordType=manual&groups=all_purpose
+
+
+
+		==>  I created a user (aws,  mima t7)  <---  now got the 
+		    
+			   Access Key and
+			   Secrete Access Key 
+
+
+
+      1.4.2  Now, log in to AWS from command line
+
+	     eb init -i
+
+		 using the above "access key" and "secrete access key" 
+
+
+
+     1.4.3  The user created above (aws)  can also sign in from web (so that we do not need to use Amazon shopping account)
+
+		https://741674393425.signin.aws.amazon.com/console
+
 
 
   
