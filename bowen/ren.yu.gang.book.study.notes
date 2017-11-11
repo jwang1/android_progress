@@ -1468,6 +1468,27 @@ Actions:
 		https://741674393425.signin.aws.amazon.com/console
 
 
+	 1.4.4  From EB Command Line Interface:
+
+	    1.4.4.1   open the app by
+
+		     eb open
+
+	    1.4.4.2   created dev-env by
+
+		     eb create dev-env
+
+        1.4.4.3   after coding,  deploying
+
+		     eb deploy
+
+
+  2. set it from aws console (web),  for Anuko 
+
+    http://track-progress.us-east-1.elasticbeanstalk.com
+
+
+
 
   
 
