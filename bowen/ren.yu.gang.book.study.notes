@@ -1489,7 +1489,72 @@ Actions:
 
 
 
+   
+   STILL having issue (permission) after installing the Anuko.  
+
+
+   ***  Back to check Anuko installation requirement : 
+
+   https://www.anuko.com/time_tracker/install_guide/linux_quick_install.htm
+
+
+
+
+
+  3. For Google Cloud,  they have some AppEngine,  has own add-ons (like, to include app.yaml file); for Php app..
+
+
+
+
+	 # starting the web app locally.
+     dev_appserver.py --php_executable_path=/usr/bin/php -cgi $PWD
+
+
+     # for Anuko,  even after copying/editing the app.yaml  ;  still complaining about 
+	 # google.appengine.tools.devappserver2.errors.AppConfigNotFoundError: The "/home/****/timetracker/WEB-INF" subdirectory exists but is missing appengine-web.xml and web.xml
 
   
+
+     Installed MySQL instance on Google, because AWS's MySQL charges high $30/month ? 
+
+
+
+
+  4. Now, link Anuko (on AWS) to Google's MySQL instance. 
+
+      4.1  Populate Google MySQL db from Local Anuko instance;  now for LOCAL Anuko,  need to set up local PHP etc !
+
+	       https://jason.pureconcepts.net/2012/10/install-apache-php-mysql-mac-os-x/
+
+		      (for Mac OS X,  the install is relatively simpler, because Apache already there;  simply need to update 
+
+			    4.1.1   vi /etc/apache2/httpd.conf
+
+				     uncomment out for line "LoadModule php5_module libexec/apache2/libphp5.so"
+
+					 and then
+
+					 sudo apachectl restart    
+
+					 will do the work.
+
+
+           http://localhost/phpinfo.php     (prints out a lot of information) 
+
+
+
+  5. AWS instance access : 
+
+     https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId
+
+	 (when choose "Connect", it will show SSH stuff - which needs a private-key, and the host-name;  it is in the pop-up 
+	  where information and commands are found)
+
+
+	 Note, AWS using RedHat like Linux;  the Web directory is in  : 
+
+	    /var/www/html/
+
+
 
 
