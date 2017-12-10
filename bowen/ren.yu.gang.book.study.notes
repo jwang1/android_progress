@@ -1558,3 +1558,53 @@ Actions:
 
 
 
+
+
+12/9/2017 (Sat) 
+
+  --  wow,  it's been almost 1 month, all onto company work.
+
+  --  here, some comp proj required Angular stuff, so, onto it now.
+
+  1. having "Learning Angular 2" by Pablo Deeleman at hand, but reviews on amazon.com saying this book is terribly outdated. 
+
+  2. What other books then ? 
+
+  3. Up to date ?    -->   going for  angular.io  (for Angular 2 stuff) 
+
+     https://angular.io/guide/quickstart   (official doc) 
+
+	 also the course :  https://www.udemy.com/the-complete-guide-to-angular-2/learn/v4/t/lecture/6655594?start=0
+
+
+     3.1  npm - install nvm (for node) 
+      
+	        "nvm"   --   https://github.com/creationix/nvm
+
+
+	 3.2  Angular CLI
+
+		    https://angular.io/guide/quickstart
+
+     3.3  install Boostrap for Angular 5 project via Angular-CLI
+
+	      https://stackoverflow.com/questions/36292438/how-to-use-bootstrap-css-library-in-angular-2-project
+
+
+12/10/17 (Sun)  
+
+     lots of time shoving snow in the afternoon.
+
+     3.4 this link tells Angular 5 file structures (created from Angular-CLI) 
+
+
+
+
+
+
+
+
+
+
+
+
