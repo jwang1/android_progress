@@ -1597,6 +1597,40 @@ Actions:
 
      3.4 this link tells Angular 5 file structures (created from Angular-CLI) 
 
+     3.5 Debugging Angular apps created with Angular CLI in WebStorm
+
+	     https://blog.jetbrains.com/webstorm/2017/01/debugging-angular-apps/
+
+		 <==  still need to install Chrome Extension (IntelliJ Plugin)  
+
+		 <==  Note, JetBrain WebStorm debugger cannot Set BreakPoint on "html" files; 
+		    
+			       BUT, Chrome WebDeveloper tools are ok !   (so, the native Chrome/FireFox web developer tool / debugger
+				        is more powerful than JetBrain's debugger ! )
+
+
+         NOTE:  cannot open PyCharm (or IntelliJ) at the same time with WebStorm;  because IntelliJ Chrome Extension can only
+		        hook with 1 of the IDEs.  
+
+				So, for IDE debugging,  need to close PyCharm/IntelliJ, just leave WebStorm running !
+
+     3.6 Angular workflow in JetBrain WebStorm
+
+	     https://blog.jetbrains.com/webstorm/2016/04/angular-2-workflow-in-webstorm/
+
+
+12/11/17 (Mon)
+
+
+  1. Angular project adding Bootstrap support
+
+     adding  "./node_modules/bootstrap/dist/css/bootstrap.min.css"  in  .angular-cli.json  "style" section
+
+
+  2. create new component
+
+      ng generate component xyz    (it creates a new component, and updates  app.module.ts  )
+
 
 
 
