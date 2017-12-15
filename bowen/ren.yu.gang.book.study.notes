@@ -1632,9 +1632,37 @@ Actions:
       ng generate component xyz    (it creates a new component, and updates  app.module.ts  )
 
 
+12/14/17 (Thr)
+
+  5:30 AM ,  Listening to the classical Piano musics,  and studying by doing,  it is surreal !
+
+   1.  did not get any time to do this Angular 5 practice last night,  12/12 Tue worked on compa porject too tired to do own study.
+
+   2. Angular Routing 
+
+       ng generate module app-routing --flat --module=app
+
+	   (--flat means not to create own dir)
+	   (--module means to register this AppRouting into AppModule)
+
+  
+   3. Convention over Configuration stuff
+
+      inside @NgModule({ }),  adding the following:
+
+		  imports: [ RouterModule.forRoot(routes) ],
+
+
+	  where Router initializes, and watches the "routes" changes ....
 
 
 
+   4. did not realize I woke up earlier today. anyway, it's 9:20pm now
+
+      continue the Angular Routing.
+
+       
+	  added the /heroes route and /dashboard route
 
 
 
