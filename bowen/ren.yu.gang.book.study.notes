@@ -1680,6 +1680,44 @@ Actions:
    3.  
 
 
+12/16/17 (Sat) 
+
+   1. the following TSLint took me a couple of hours to debug.
+
+		   https://stackoverflow.com/questions/44853057/making-sense-of-no-shadowed-variable-tslint-warning
+
+		   The linter complains because you are redefining the same variable multiple times. Thus replacing the ones in the closure containing it.
+
+		   Instead of redeclaring it just use it:
+
+
+
+     1)  the official site had the following code:  https://angular.io/tutorial/toh-pt6#import-heroes
+
+
+			addHero (hero: Hero): Observable<Hero> {
+			  return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
+				  tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
+					  catchError(this.handleError<Hero>('addHero'))
+			  );
+			}
+
+
+     2)  the above had "TSLint" warning (but looks like error from webstorm IDE);  anyway, to fix that ,  need following code:
+
+	     that is, directly use the "hero" variable in tap,  do not redefine it
+		 Also, for handleErr, it requires <any> type here, but not for the http.get ...
+		 perhaps, http.get and http.post return different types.
+
+	       addHero(hero: Hero): Observable<Hero> {
+		     return this.http.post<Hero>(this.herosUrl, hero, httpOptions)
+			   .pipe(
+			     tap( _ =>  this.log(`added hero with id=${hero.id}`)),
+
+				 catchError(this.handleErr<any>('addHero'))
+			   );
+		   }
+
 
 
 
