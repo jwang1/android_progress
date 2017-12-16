@@ -1666,6 +1666,20 @@ Actions:
 
 
 
+12/15/17 (Fri)
+
+   8:30 PM
+
+   1. ActivateRoute holds information about the route to the instance of HeroDetailComponent
+
+   2. Location - Angular service for interacting with browser.  Will use it later to navigate back to the view that navigated here.
+
+      this.location.back() 
+
+
+   3.  
+
+
 
 
 
