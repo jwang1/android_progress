@@ -1862,6 +1862,210 @@ Actions:
 			} 
 
 
+       
+
+      1.3  This link (office google doc: 
+
+	       https://angular.io/guide/component-interaction
+
+
+		   has good e2e Tests 
+
+			
+		   "e2e" allows "Button Clicks"  action, and then, check the flows ...
+
+
+			For instance, the nested newMinorButton.click() and newMinorButton.click() 
+
+				it('should set expected values after clicking \'Minor\' twice', function () {
+				  let repoTag = element(by.tagName('app-version-parent'));
+				  let newMinorButton = repoTag.all(by.tagName('button')).get(0);
+				 
+				  newMinorButton.click().then(function() {
+					newMinorButton.click().then(function() {
+					  let actual = getActual();
+				 
+					  let labelAfter2Minor = 'Version 1.25';
+					  let logAfter2Minor = 'minor changed from 24 to 25';
+				 
+					  expect(actual.label).toBe(labelAfter2Minor);
+					  expect(actual.count).toBe(3);
+					  expect(actual.logs.get(2).getText()).toBe(logAfter2Minor);
+					});
+				  });
+				});
+
+
+
+
+        1.4  Parent component listens for child component events
+
+		    EventEmitter (child component exposes event property;  and Parent component binds to that even property...)
+
+			*** child component emits an @Output event-property
+
+			   @Output() onVoted = new EventEmitter<boolean>();
+
+			   vot(agreed: boolean) {
+			     this.onVoted.emit(agreed);   // <===  note the emit on the agreed boolean value from Child compnent's click event !
+
+				 this.voted = true;
+			   }
+
+
+			*** now Parent component binds
+
+			   in Parent component Template which uses child component (app-voter)
+
+			      <app-voter *ngFor="let voter of voters"
+				     [name]="voter"
+					 (onVoted)="onVoted($event}">
+				  </app-voter>
+
+
+				notice the Parent VoteTakerComponent
+
+				  binds an event handler called "onVoted" that responds to the "child event payload $event" and updates a counter
+
+				     Notice the "$event" which is the child's event-payload
+
+
+				  export class VoteTakerComponent {
+				     .
+					 .
+					 .
+
+				     onVoted(agreed: boolean) {
+					   agreed ? this.agreed++ : this.disagreed++;
+					 }
+				   }
+	       
+	       
+	       
+	       
+
+       1.5 Parent component interact with Child component via "local variables"
+
+
+			The parent component cannot data bind to the child's start and stop methods nor to its seconds property.
+
+			You can place a local variable, #timer, on the tag <countdown-timer> representing the child component. That gives you a reference to the child component and the ability to access any of its properties or methods from within the parent template.
+
+            *** note the following #timer (used in app-countdown-timer child component)
+            *** and then, parent component can call child-component's method, timer.start(), timer.stop()
+
+			@Component({
+			  selector: 'app-countdown-parent-lv',
+			  template: `
+			  <h3>Countdown to Liftoff (via local variable)</h3>
+			  <button (click)="timer.start()">Start</button>
+			  <button (click)="timer.stop()">Stop</button>
+			  <div class="seconds">{{timer.seconds}}</div>
+			  <app-countdown-timer #timer></app-countdown-timer>
+			  `,
+			  styleUrls: ['../assets/demo.css']
+			})
+			export class CountdownLocalVarParentComponent { }
+
+
+
+	   1.6  Parent calls an @ViewChild() 
+
+
+			** note Parent uses @ViewChild(CountdownTimerComponent) belown.
+
+
+				@Component({
+				  selector: 'app-countdown-parent-vc',
+				  template: `
+				  <h3>Countdown to Liftoff (via ViewChild)</h3>
+				  <button (click)="start()">Start</button>
+				  <button (click)="stop()">Stop</button>
+				  <div class="seconds">{{ seconds() }}</div>
+				  <app-countdown-timer></app-countdown-timer>
+				  `,
+				  styleUrls: ['../assets/demo.css']
+				})
+				export class CountdownViewChildParentComponent implements AfterViewInit {
+				 
+				  @ViewChild(CountdownTimerComponent)
+				  private timerComponent: CountdownTimerComponent;
+				 
+				  seconds() { return 0; }
+				 
+				  ngAfterViewInit() {
+					// Redefine `seconds()` to get from the `CountdownTimerComponent.seconds` ...
+					// but wait a tick first to avoid one-time devMode
+					// unidirectional-data-flow-violation error
+					setTimeout(() => this.seconds = () => this.timerComponent.seconds, 0);
+				  }
+				 
+				  start() { this.timerComponent.start(); }
+				  stop() { this.timerComponent.stop(); }
+				}
+
+
+       1.7 Parent and child communicate via Services 
+
+
+				@Injectable()
+				export class MissionService {
+				.
+				.
+				.
+
+				}
+
+
+				now it is injected into: 
+
+
+				export class MissionControlComponent {
+					constructor(private missionService: MissionService) {
+						missionService.missionConfirmed$.subscribe(
+						  astronaut => {
+							this.history.push(`${astronaut} confirmed the mission`);
+						  });
+					  }
+
+
+
+
+				The MissionService is also injected in:
+
+				export class AstronautComponent implements OnDestroy {
+				.
+				.
+				.
+
+				  constructor(private missionService: MissionService) {
+					this.subscription = missionService.missionAnnounced$.subscribe(
+					  mission => {
+						this.mission = mission;
+						this.announced = true;
+						this.confirmed = false;
+					});
+				  }
+
+
+
+				Notice that this example captures the subscription and unsubscribe() when the AstronautComponent is destroyed. This is a memory-leak guard step. There is no actual risk in this app because the lifetime of a AstronautComponent is the same as the lifetime of the app itself. That would not always be true in a more complex application.
+
+				You don't add this guard to the MissionControlComponent because, as the parent, it controls the lifetime of the MissionService.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
