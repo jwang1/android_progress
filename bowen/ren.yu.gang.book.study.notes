@@ -1749,6 +1749,72 @@ Actions:
       https://codecraft.tv/courses/angular/unit-testing/classes-and-pipes/
 
 
+   4. Some HTML attributes vs DOM properties
+
+      https://angular.io/guide/template-syntax
+
+	  4.1  html attributes initialize DOM properties, but, once it's initialized, the attributes canNOT be changed;
+
+	       DOM properties can be changed.
+
+
+              *** HTML attribute value speicify the "initial" value;  DOM value property is the "current" value  ***
+
+
+           Attributes initialize DOM properties and then they are done. Property values can change; attribute values can't.
+
+		   For example, when the browser renders <input type="text" value="Bob">, it creates a corresponding DOM node with a value property initialized to "Bob".
+
+
+		
+		When the user enters "Sally" into the input box, the DOM element value property becomes "Sally". But the HTML value attribute remains unchanged as you discover if you ask the input element about that attribute: input.getAttribute('value') returns "Bob".
+
+		The HTML attribute value specifies the initial value; the DOM value property is the current value.
+
+		The disabled attribute is another peculiar example. A button's disabled property is false by default so the button is enabled. When you add the disabled attribute, its presence alone initializes the button's disabled property to true so the button is disabled.
+
+
+		Adding and removing the disabled attribute disables and enables the button. The value of the attribute is irrelevant, which is why you cannot enable a button by writing <button disabled="false">Still Disabled</button>.
+
+		Setting the button's disabled property (say, with an Angular binding) disables or enables the button. The value of the property matters.
+
+		The HTML attribute and the DOM property are not the same thing, even when they have the same name.
+
+
+
+
+
+12/17/17 (Sun)
+
+    1. continue on Angular 5 
+
+	   "Fundamentals" 
+
+	   1.1  Lifecycle hooks 
+
+	        constructor -> ngOnChanges -> ngOnInit -> ngDoCheck (ngAfterContentInit, ngAfterContentChecked, ngAfterViewInit, ngAfterViewChecked)  -> ngOnDestroy
+
+
+
+			*** this link provides Live Examples : https://angular.io/guide/lifecycle-hooks ***
+
+	     
+
+		    ngOnChanges called before ngOnInit
+
+			ngOnInit called only once, after first ngOnChanges
+
+			ngDoCheck called during "every" change detection run; immediately after ngOnChanges and ngOnInit
+
+			ngAfterContentInit (a component only hook),  called once, after the first ngDoCheck ;   
+
+			ngAfterContentChecked (component only hook), called after ngAfterContentInit and "every" ngDoCheck.
+
+			ngAfterViewInit (component only hook), called once, after ngAfterContentChecked
+
+			ngAfterViewChecked (component only hook), called after ngAfterViewInit and "every" ngAfterContentChecked
+
+			ngOnDestry cleanup just before Angular destroys directive/component;  unsubscribe Obervables and detach event handlers to avoid memory leaks.   called just before Angular destryos the directive/component.
 
 
 
