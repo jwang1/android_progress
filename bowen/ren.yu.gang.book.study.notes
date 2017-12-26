@@ -2055,6 +2055,18 @@ Actions:
 
 
 
+12/25/17 (Mon) Christmas Day 
+
+  1. finally got the time tracker set up locally correctly
+
+     a. had issue to install MySQL (had to upgrade mac os, ie, install the updates long due)
+	 b. migrate data from Google MySQL to local MySQL (Google's too expensive, about $80/month)
+	 c. had to make both Time Tracker and MySQL on LOCALY machine  (Amazon side, costs $60/month to use the AWS, which includes DB;  but without that, still $20 for AWS,  the $20 load balancer can be removed;  still minimum $20/month the run the Time Tracker, NOT worth of it)  <-- moving to local server
+
+	 d. Local Server had "Access Denied." Errors;  originally thought DB issue;  after a while, today
+	 e. tried to download Time Tracker, and use locally; not all thing are good.   The yesterday's failures were due to OLD version of Time Tracker, accessing new Time Tracker DB models;  therefore, "Access Denied".
+
+	 Now, all things are good.
 
 
 
