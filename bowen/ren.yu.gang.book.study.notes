@@ -2070,11 +2070,42 @@ Actions:
 
 
 
+  
+  2. Finally, get time, BACK to Angular 5 study !
+
+     a. continue to review the Angular stuff ... the official site and docs
+	 b. continue to do the projects (beyond the tutorials)
+	 c. 
+
+
+
+12/26/17 (Tue) holiday
+
+  1. continue on Angualr 5, and some CSS
+
+     https://angular.io/guide/animations   (need to re-read this section again, also the Pipes, Structural Directives) !
+ 
+
+  2. Need to do projects 
+     
+	 https://www.udemy.com/the-complete-guide-to-angular-2/learn/v4/t/lecture/6656036?start=0
 
 
 
 
+12/27/17 (Wed) day off
 
+  1. morning, implemented property driven HBO ads (gong si project)
+
+  2. quickly scanned "Joel on Software ..."  by Joel Spolsky - who co-founded stackoverflow, after he left Microsoft for 3-yr project management on Excel around 1993~199x 
+
+     One thing in common: 
+
+	   Page P183 ~ 186;   Do NOT throw old code simply for the sake of writing new code.   The old code has lot of bug-fixes, and those bugs were identified by real customers (many) 
+
+       He also gave a good example of refactoring existing code ...  need care,  and (nowadays, it'd be not much troubles, because we have Unit tests to check any changes);  and after refactoring, still handles those bug-fixes identified with years customer usage.   (the knowledge of bugs, cases);   new coding may not necessary avoiding those bugs, and the 'new team members' may not be those created version-1.
+
+	   Alas.
 
 
 
