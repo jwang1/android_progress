@@ -561,8 +561,32 @@ View and event handling
 
 
   3. GIT : 
+
+    updated on 12/28/2017 (Thr) :
+
+	   1) create LOCAL git project
+	   2) create GitHub repository, from the site https://github.com/jwang1
+	      for instance, created the following repository
+		  https://github.com/jwang1/manual-writing-component.git
+
+	   3) Now, from LOCAL, command line:
+
+	      a.  add "remote" for local git project
+
+		      git remote add origin https://github.com/jwang1/manual-writing-component.git
+
+	      b.  push local commits to remote repository
+
+		      git push --set-upstream origin master
+
+		  c.  after that, we can push further local commits by simply  (because of --set-upstream ) 
+
+		      git push
+
+
    
      push new local project to GitHub :  
+
 	   1) in local android project, make sure clean project (from Android Studio is fine)
 	   2) git init
 	   3) git add -all  (make sure some good .gitignore)
