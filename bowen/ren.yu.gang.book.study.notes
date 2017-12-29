@@ -2108,6 +2108,19 @@ Actions:
 	   Alas.
 
 
+12/28/17 (Thr) day off
+
+  1. Good site on using bootstrap in Angular 5 projects
+
+	 (great blog)
+
+     https://loiane.com/2017/08/how-to-add-bootstrap-to-an-angular-cli-project/
+
+
+	 1.1  It summarizes all possible ways
+	 1.2  It has bootstrap,  and ngx-bootstrap (this is for the dropdown, modal etc without using jQuery) 
+
+	 1.3  It has way of organize the ngx-bootstrap "modules" imported, and organize it into a Angular module
 
 
 
