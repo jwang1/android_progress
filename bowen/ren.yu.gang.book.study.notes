@@ -2169,7 +2169,7 @@ Actions:
 
   1. Continue on "Modern Java Recipes" - Ken Kousen
 
-     * Functional Interfaces  - can only have 1 "abstract" method
+     *1.1*) Functional Interfaces  - can only have 1 "abstract" method
 
 	   a) prior to Java 8,  all java interface methods were "abstract";  but now, to keep an interface as @FunctionalInterface, we need to have other methods as "default", or "static",  because @FunctionalInterface only allows 1 "abstract" method
 
@@ -2208,6 +2208,44 @@ Actions:
 
 		  a functional interface has exactly one abstract method. Since default methods have an implementation, they are not abstract. If an interface declares an abstract method overriding one of the public methods of java.lang.Object, that also does not count toward the interface's abstract method count since any implementation of the interface will have an implementation from java.lang.Object or elsewhere
 
+
+
+
+
+     ***2***) "Default" method in Java Interfaces
+
+	    -- Backward Compatibility
+
+		   because, adding a new "abstract" method in interface - forces old classes implementing that interface, to implement/override that new 'abstract' method;  therefore, 
+
+		    for such 'new' method, instead of 'abstract', we can put 'default' with implementation.
+
+
+        ???) NOW, if 2 interfaces have the same "default" method (with the same signature),  and 1 class implements both interfaces, what will happen ?
+		   <--  that is classical "Diamond Inheritance" issue;  C++ allows multi-inheritance (but emit compile-time error if there are ambiguous 
+
+		   <== Java does not allow "Diamond Inheritance", so, for the above case, the 'class' has to OVERRIDE the "default" method in the 2 interfaces.
+
+
+
+    ***3***) "static" method in Java interfaces
+
+	       Class level utility method, with "implementation";  but not to be overridden (?)
+
+		   List<String> bonds = Arrays.asList("Dalton", "Craig", "Moore", "Brosnan");
+
+		   List<String> sorted = bonds.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
+
+		   sorted = bonds.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+
+		   sorted = bonds.stream().sorted(Comparator.comparingInt(String::length)).collect(Collectors.toList());
+
+
+
+      ^1^  Static method in Interface must have implementation
+	  ^2^  it cannot be overridden
+	  ^3^  call static methods from interface name
+	  ^4^  do not need to implement an interface to use its static methods
 
 
 
