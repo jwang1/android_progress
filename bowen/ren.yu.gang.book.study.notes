@@ -2249,5 +2249,59 @@ Actions:
 
 
 
+  
+   ***4***)  java.util.function package
+
+      _1_  consumer - takes a generic argument, and returns nothing
+	  _2_  supplier - takes no argument, and returns a value
+	  _3_  predicate - takes an argument, and returns a boolean
+	  _4_  function - takes a single argument, and returns a value.
+
+
+
+       *) consumer (can be treated as some sort of Action on an element)
+
+	      java.util.function.Consumer has
+		     void accept(T t)
+			 default Consumer<T> andThen(Consumer<? super T> after)
+
+
+          java.util.Iterable  forEach method takes Consumer as an argument, as
+
+		     default void forEach(Consumer<? super T> action)    // similar to Consumer::andThen(...)
+
+
+			 for example: 
+
+			   // Anonymous Class
+			   Arrays.asList("a", "b", "c").forEach(new Consumer<String>() {
+			       @Override
+				   public void accept(String s) {
+				       System.out.println(s);
+				   }
+			   }
+
+			   // Expression Lambda
+			   Arrays.asList("a", "b", "c").forEach(s -> System.out.println(s));   // here the anonymous function is a Consumer
+
+			   // Method Reference
+			   Arrays.asList("a", "b", "c").forEach(System.out::println);  
+
+
+          
+
+		  ^^^^)  BiConsumer - accepts 2 generic arguments, and returns nothing.
+
+
+		  ^^^^)  Other uses of Consumer in standard lib:
+
+		     Optional.ifPresent(Consumer<? super T> consumer);  // saying, if a value presents, invoke the specified consumer, otherwise, do nothing.
+
+              Stream.forEach(Consumer<? super T> consumer);     // for each element, invoke the specified consumer, do something
+
+			  Stream.peak(Consumer<? super T> consumer);        // Returns a stream with the same elements as the previous/existing stream;  BUT, before returning, it performing the specified consumer/action.    
+
+
+
 
 
