@@ -2157,6 +2157,58 @@ Actions:
 
 
 
+12/29/17 (Fri) day off
+   1. worked on comp stuff, from 9:30am ~ 2:30pm
+
+   2. studying the "Modern Java Recipes" - Ken Kousen   
+
+      saying for Java 8 and 9;  actually, it's more on Java 8;  
+
+
+12/30/17 (Sat) 
+
+  1. Continue on "Modern Java Recipes" - Ken Kousen
+
+     * Functional Interfaces  - can only have 1 "abstract" method
+
+	   a) prior to Java 8,  all java interface methods were "abstract";  but now, to keep an interface as @FunctionalInterface, we need to have other methods as "default", or "static",  because @FunctionalInterface only allows 1 "abstract" method
+
+
+	   b) All methods in Java Interfaces;  are "public",  hence, left out (ie, not writing);  same about "abstract" method, such keyword not needed in interfaces;
+
+
+       c) Java Comparator Interface, has 2 "abstract" methods, yet, it is still @FunctionalInterface, WHY?
+
+	      it has 
+		          int compare(T o1, T o2);     // an abstract method
+
+				  boolean equals(Object obj);  // another abstract method
+
+
+		  It runed out, "equals" overrides Object's equals method,  therefore, NOT counted as @FunctionalInterface's "abstract" method;  although "equals" is an "abstract" method,  BUT not counted as @FunctionalInterface's
+	   
+            (https://stackoverflow.com/questions/23721759/functionalinterface-comparator-has-2-abstract-methods)
+
+			See the javadoc of FunctionalInterface:
+
+			If an interface declares an abstract method overriding one of the public methods of java.lang.Object, that also does not count toward the interface's abstract method count since any implementation of the interface will have an implementation from java.lang.Object or elsewhere.
+
+
+
+          Good info on @FunctionalInterface
+
+		  https://stackoverflow.com/questions/36881826/what-is-use-of-functional-interface-in-java-8/36882003
+
+
+		  @FunctionalInterface annotation is useful for compilation time checking of your code. You cannot have more than one method besides static, default and abstract methods that override methods in Object in your @FunctionalInterface or any other interface used as a functional interface.
+
+		  But you can use lambdas without this annotation as well as you can override methods without @Override annotation.
+
+		  From docs
+
+		  a functional interface has exactly one abstract method. Since default methods have an implementation, they are not abstract. If an interface declares an abstract method overriding one of the public methods of java.lang.Object, that also does not count toward the interface's abstract method count since any implementation of the interface will have an implementation from java.lang.Object or elsewhere
+
+
 
 
 
