@@ -2304,4 +2304,43 @@ Actions:
 
 
 
+   3. Java 9 study : 
+
+      https://www.youtube.com/watch?v=QqmQ_0tV978
+
+
+	  3.1  module-info.java 
+
+
+      and 
+
+	  3.2  Trisha Gee's video on IntelliJTv ... (youtube) ...   <-- good summary ....
+
+
+
+
+12/31/17 (Sun) 
+
+  1. Did Exercise 3 (practice directives) 
+
+     *)  notes on Angular-CLI
+
+	     Change the "prefix" for the default module : https://github.com/angular/angular-cli/issues/3728
+
+		 ng new xyz-project --prefix=exercise3
+
+
+1/1/18 (Mon) 
+
+ 1. studied Angular 5 - 
+
+ 2. watched Java 9 stuff
+
+
+1/2/18 (Tue)
+
+ 1. Angular 5 -- Practiced Child-Component @Output() EventEmitter ;  and Parent-Component binds it and gets the value of $event   (note, that type for EventEmitter,  can be an JS Object)
+
+ 2. watched some Java 9 video - Venkat's
+
 
