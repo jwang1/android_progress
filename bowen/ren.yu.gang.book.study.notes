@@ -2344,3 +2344,19 @@ Actions:
  2. watched some Java 9 video - Venkat's
 
 
+1/3/18 (Wed)
+
+  1. Angular 5 
+
+     1.1)  Template Local reference (can only be used in template,  but can be passed to click events etc)
+
+	 1.2)  Template local reference acces via @ViewChild in controller ...
+
+	 1.3)  practice more @Output, @Input 
+
+
+  --> the next one is:  Directives for DOM handling.
+
+
+
+
