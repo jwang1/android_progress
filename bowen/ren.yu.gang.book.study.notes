@@ -2359,4 +2359,40 @@ Actions:
 
 
 
+1/4/18 (Thr)
+
+  1. Study the "Software Architecture"
+
+     1) What is architecture - Not block diagram of software release;  but a long-term strategy defines the boundaries and particular context of a problem to be solved with software.
+
+	    If there is a STRATEGY and LONG-TERM VIEW of what PROBLEM we are trying to SOLVE, 
+		and a STRATEGY for solving it in general, we can make incremental progress one release at a time, without backing ourselves into a corner. 
+
+		<---  So,  software architecture, from the above point of view, is basically, PLAN-AHEAD for whole company,  similar to business owners PLAN-AHEAD of business to do, either new business, or pivoting ...
+
+
+		<--- this is somewhat differring from https://msdn.microsoft.com/en-us/library/ee658098.aspx ;  but the above view is more from START-UP point of view,  if you start up a new software company, that is basically you need to PLAN-AHEAD.  
+
+
+    2)  Top-down approaches:
+
+	    2.1) Problem Domain  ---  WHAT really trying to solve/do ?
+
+		2.2) Architectural Requirements --- 
+		        things/features/ need to have for the next three to five years. It's business strategies/requirements written in Techical way ...
+
+		2.3) Arch Strategy:  define the building blocks for the architecture, and the relationship; and use the "Dive & Conque" to slice the problems into pieces that people can grasp.
+
+		2.4) Architure -- the requirements and desings for the above strategy, and set a good responsibility for each building block, similar to the OOD high cohesion, low coupling.
+
+		2.5) System Requirements --- what each building block needs to implement.
+
+		2.6) System Design --- a short-term design for a release, in line with the architecture, implement the requirements,
+
+		2.7) System Implementation --- Complete the release based on the design, fulfil the sys requirements, and within the constraints of the architecture.
+
+		2.8) Tests --- from unit tests, component tests, integration test, user acceptance tests, to real world tests (can borrow Intuite way; but never Mozilla way - which rolled out rewritten software without much tests to real world and get back to fix <-- very bad).
+
+
+
 
