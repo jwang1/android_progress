@@ -2396,3 +2396,148 @@ Actions:
 
 
 
+  2.  Angular 5 LifeCycle : 
+
+
+      1) ngOnChanges (when a bound INPUT property changes) (can be executed multiple times)
+	  2) ngOnInit (called when Component is initialized)
+	  3) ngDoCheck (called whenever something in Template got changed;  hence called a lot)
+	  4) ngAfterContent (called after ng-content has been projected into view)
+	  5) ngAfterContentChecked (called each time the projected content has been checked)
+	  6) ngAfterViewInit (called after Component's View and child-views been initialized)
+	  7) ngDestroy (called when component is about to be destroyed) <---  how is component destroyed ? 
+
+
+  
+  3.  Practice ngOnChanges  
+  
+        in exercise3 repository
+
+		a) log-message.component has @Input() of LogMessage;  
+		b) since ngOnChanges checks @Input's changes,  
+		c) just implement OnChanges interface for log-message.component
+		d) set some string-interpolations 
+
+
+1/5/18 (Fri)
+
+  1. practice "Modern Java Recipes" - Ken Kousen
+
+    1)
+
+     Stream.of(T... values)
+	 Stream.of(T t) 
+	 Stream.iterate(T seed, UnaryOperator<T> f) ...  with limit(12) ...
+	 Stream.generate(Supplier<T> s)   with limit(11) ...   for instance to generate 11 random numbers
+	 Collection.stream() 
+
+
+    2) reduction
+
+	  Arrays.stream(strings)
+	    .mapToInt(String::length)
+		.sum();
+
+
+     int sum = IntStream.rangeClosed(1, 10)
+	                // here reduce uses IntBinaryOperator , orElse giving 0, if stream has no data.
+	            .reduce((x,y) -> {
+				  System.out.println("x=%d, y=%d \n", x, y);
+				  return x + y;
+				}).orElse(0);
+
+
+	x=1, y=2
+	x=3, y=3
+	x=6, y=4
+	x=10, y=5
+	.
+	.
+	.
+	x=45, y=10
+
+	sum = 55
+
+
+	Now, using "binary operators" to achieve the same
+
+	   Stream.of(1,2,3,4,5,6,7,8,9,10)
+	     .reduce(0, Integer::sum);
+
+	sum = 55
+
+
+    3)  stream, efficiency, and under the hood
+
+    String s = Stream.of("a", "b", "c")
+	  .reduce("", String::concat);
+
+	s is :  abc
+
+    
+	***  Note, the above way is not memory-efficient,  concat creates new string, and can produce high GC pressure
+
+	    the following takes a "Supplier" for the collection, 
+		                    a "BiConsumer" adding a single element to the collection
+							a "BiConsumer" combines two collections.   
+
+
+	  so,  improvement
+
+	  String s = Stream.of("a", "b", "c")
+	              .collect(() -> StringBuilder(),  // supplier, to create a StringBuilder
+				           (sb, str) -> sb.append(str),  // so, append string
+						   (sb1, sb2) -> sb1.append(sb2)) // combine two results
+				  .toString();
+
+
+	   really a lot ... 
+
+
+	*** now, the above can use method reference 
+
+	 String s = Stream.of("a", "b", "c") 
+	             .collect(StringBuilder::new,
+				          StringBuilder::append,
+						  StringBuilder::append)
+				 .toString();
+
+
+	*** actually, we use the following a lot 
+
+	  String s = Stream.of("a", "b", "c")
+	              .collect(Collectors.joining());
+
+
+
+
+    4) most genral form of reduce
+
+	  <U> U reduce(U identity,
+	               BiFunction<U, ? super T, U> accummulator,
+				   BinaryOperator<U> combiner)
+
+
+      
+	  // accumulating books into a map
+
+	  HashMap<Integer, Book> bookMap = 
+	     books.stream()
+		 .reduce( 
+		          new HashMap<Integer, Book>(),  // Identify value for putAll
+		 
+		          (map, book) -> {				 // Accumulate a "single" book into Map using put
+				    map.put(book.getId(), book);
+					return map;
+				  },
+
+                  (map1, map2) -> {				 // Combine multiple Maps using putAll
+				    map1.putAll(map2);
+					return map1;
+				  });
+
+
+
+
+
+      
