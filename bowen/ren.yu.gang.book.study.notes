@@ -2538,6 +2538,13 @@ Actions:
 
 
 
+    5) sort 
+
+	   List<String> sorted = 
+	   		strings.stream()
+			.sorted(Comparator.comparingInt(String::length))
+			.collect(toList());
+	                         
 
 
       
