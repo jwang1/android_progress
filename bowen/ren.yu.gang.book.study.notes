@@ -2691,6 +2691,102 @@ Actions:
 				}
 
 
+    1.12)  Using Generic Exception Wrapper
+
+	    The author's generic wrapper
+
+		// NOTE, here requires the FUNCTION throws E; where E is Exception or sub-types;  
+		//       my question is:  what if that function does NOT throw any exception at all;  will this work ? 
+
+		@FunctionalInterface
+		public interface FunctionWithException<T, R, E extends Exception> {
+		    R apply(T t) throws E;
+	    }
+
+
+		// create a wrapper method dealing with exception
+		private static <T, R, E extends Exception> 
+		  Function<T, R> wrapper(FunctionWithException<T, R, E> fe) {
+		    return arg -> {												// note, here returns Function<T, R>
+			    try {
+				     return fe.apply(arg);
+			    } catch (Exception e) {
+				    throw new RuntimeException(e);    // convert checked-exception to unchecked
+				}
+			};
+		}
+
+
+
+        // usage
+
+		listIntegers.stream().mapToInt(wrapper(s -> 10 / s))
+		   .sum();
+
+
+
+
+   1.13)  it says, that is why Spring, Hibernate;  Groovy and Kotlin,  catch all "checked" exceptions, and rethrow them as "unchecked",  because of "checked" exceptions requiring callers to catch !
+
+
+         Still, the Generic's  lower-bound, upper-bound,  in Streaming methods,  need more practice ...
+
+
+
+1/7/18 (Sun)
+
+  1. Angular 5 
+      Yeah, these several days on Java;  now, back to Angular 5,  DOING it
+
+	  1.1)  Angular 5 Life Cycle
+
+	      1.1.1)  DoCheck
+		  1.1.2)  AfterContentInit
+
+
+
+
+ 2. Java Generics 
+      Generics and Collections in Java 5 (2012) - Naftalin M., Wadler Ph.  - Draft
+
+      2.1)  Basic Generics 
+
+	      2.1.1) Converting Array to List
+
+		     public static <E> List<E> asList(E... array) {
+			     List<E> rslt = new ArrayList<>();
+
+				 for (E e : array) {
+				     rslt.add(e);
+				 }
+
+				 return rslt;
+			 }
+
+
+         2.1.2)  Using the above
+
+		    a)  BasicGenerics.asList(1, 2, 3);
+
+			     2 things happened here:  i) the list arguments 1,2,3 is converted to Array Implecitly
+				                         ii) the "type parameter" is inferred, ie, the E is Integer here, due to Array of int[]
+										iii) also, there are Auto-boxing, from int to Integer
+
+				   All those happened in Compiler, when Byte-Code is generated.
+
+
+
+           b)  now, what if nothing passed in for the "vararg"  (E... array)
+		       we need to explicitly put the "type parameter"
+
+			      BasicGenerics.<Integer>asList();
+
+				
+				yeah, some strange syntax, but, works
+
+
+
+
 
 
 
