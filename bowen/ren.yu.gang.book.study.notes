@@ -2833,7 +2833,153 @@ Actions:
 
 
 
+1/9/18 (Tue) 
+
+  1. Modern Java Recipe -  Optional 
+
+     1.1) not to use Optional as data member, because "Optional" is not serializable 
+
+	 1.2) not to use Optional for getter, setter, just use it internally, not to expose to client;  saying returning an Optional from Setter,  may .... ?   not get what they were talking about.
+
+          <=== yet, it says, Hibernate uses Optional a lot in getter, setter for DAOs when null column returned.
 
 
+			like: 
+
+		public Optional<Manager> getSupervisor() {
+		    return Optional.ofNullable(superVisor);
+		}
+
+
+     1.3) Optional flatMap vs map
+
+	    <U> Optional<U> flatMap(Function<? super T, Optional<U>> mapper);
+
+            if the argument T exists, flatMap applies the function to it and returns an Optional wrapping the contained value.
+			if the argument T NOT exists, the method returns empty-Optional.
+
+
+
+    1.4) apply a function to a collection of Optional instances, but only if they contain a value
+
+
+		ids.stream()
+		   .map(this::findEmployeeById)
+		   .filter(Optional::isPresent)
+		   .map(Optional::get)
+		   .collect(Collectors.toList())
+
+
+
+		or
+
+		using Optional.map
+
+		   <U> Optional<U> map(Function<? super T, ? extends U> mapper)
+
+
+		ids.stream()
+		   .map(this::findEmployeeById)
+		   .flatMap(optional -> optional.map(Stream::of).orElseGet(Stream::empty))
+		   .collect(Collectors.toList());
+
+
+       
+	     <==  findEmployeeById returns Optional<Employee>
+		      optional.map(Stream::of) returns Optional<Stream<Employee>>
+			  orElseGet extras the contained value, yielding Stream<Employee>
+
+
+  2. Chapter 7 (File I/O) -- Modern Java Recipes 
+
+     2.1) Nonblocking (or new) i/o package, NIO
+	      
+		  // check file
+		  try(Stream<String> lines = Files.lines(Paths.get("/tmp/test.dat"))) {
+		    lines.filter(s -> s.length() > 20)
+			     .sorted(Comparator.comparingInt(String::length).reversed())
+				 .limit(10)
+				 .forEach(w -> System.out.println("%d %s\n", w.length(), w));
+
+
+	
+	      // walking file system
+		  try(Stream<Path> paths = Files.walk(Paths.get("/tmp"))) {
+		      paths.forEach(System.out::println);
+		  }
+
+
+		  // searching file
+		  try(Stream<Path> paths = Files.find(Paths.get("/tmp"), Integer.MAX_VALUE,
+		    (path, attributes) -> 
+			    !attributes.isDirectory() && path.toString().contains("test.dat"))) {
+
+				paths.forEach(System.out::println);
+		   }
+
+
+
+
+
+
+  3. Chapter 8 (Time - based on joda-time
+
+
+     //  now() method
+
+     Instant.now()   2018-01-09T17:27:08.184Z
+
+	 LocalDate.now() 2017-01-09
+
+	 LocalTime.now() 17:27:08.184
+
+	 LocalDateTime.now() 2018-01-09T17:27:08.184
+
+	 ZoneDateTime.now()  2018-01-09T17:27:08.184-05:00[America/New_York]
+
+
+     // of() method
+
+	 LocalDate ldt = LocalDate.of(2018, Month.JANUARY, 9);
+
+	 LocalTime ltm = LocalTime.of(20, 18);
+
+	 LocalDateTime.of(ldt, ltm);
+
+
+	 ZoneId.getAvailableZoneIds();
+
+
+
+
+     // creating dates and times from Existing instances
+
+	 LocalDate.plusDays(long daysToAdd)
+
+	 LocalTime.plusNanos(long nanosToAdd)
+
+
+	// with(...) method ;  changing one filed at a time
+
+	LocalDateTime.withNano(int nanoOfSeconds)
+
+	LocalDateTime.withSecond(int seconds)
+
+	LocalDateTime.withMinute(int minutes)
+
+    .
+	.
+	.
+
+
+
+    // Adjusters and Queries
+
+	static TemporalAdjuster firstDayOfNextMonth() 
+
+	static TemporalAdjuster firstDayOfNextYear() 
+
+
+	LocalDateTime st = LocalDateTime.of(2018, Month.JANUARY, 9, 11, 30);
 
 
