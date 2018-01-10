@@ -2952,7 +2952,7 @@ Actions:
 
 
 
-     // creating dates and times from Existing instances
+     // plusXYZ(...) method; creating dates and times from Existing instances
 
 	 LocalDate.plusDays(long daysToAdd)
 
@@ -2981,5 +2981,92 @@ Actions:
 
 
 	LocalDateTime st = LocalDateTime.of(2018, Month.JANUARY, 9, 11, 30);
+
+	LocalDateTime ed = start.with(TemporalAdjusters.firstDayOfNextMonth());	  // note the TemporalAdjusters usage
+
+	assertEquals("2018-02-01T11:30", ed.toString());
+
+
+
+    // convert Temporal to LocalDate
+
+	Temporal input ...
+
+	LocalDate.from(input);
+
+
+
+
+    // Convert from java.util.Date to java.time.LocalDate
+
+	use Instant class as a bridge, or java.sql.Date and java.sql.Timestamp methods;  
+
+	===> 
+	java.sql.Date sqlDt ...
+
+	sqlDt.toLocalDate();
+
+
+	==> 
+	LocalDate ldt ...
+
+	java.sql.Date.valueOf(ldt);
+
+
+	==>
+	DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+
+	LocalDateTime.parse(df.format(java.util.Date), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+
+
+    ==> 
+	java.util.Date.toInstant() ....
+
+	LocalDate.ofInstant(java.util.Date.toInstant(), ZoneId.systemDefault());
+
+
+
+
+	// Parsing and Formatting
+
+	String tmTxt = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
+
+	LocalDateTime ldt = LocalDateTime.parse(tmTxt);
+
+
+	// Finding Time Zones with Unusual Offsets
+
+	ZoneId.getAvailableZoneIds().stream()
+		  .map(ZoneId::of)
+		  .filter(...) 
+		  .sorted(Comparator.comparingInt(...) 
+		  .forEach(...) 
+
+
+	// Finding Region Names from Offsets
+
+
+
+	// Time between events
+
+	TemporalUnit::between(Temporal inclusive, Temporal exclusive);
+
+	
+	// Period class
+
+	Period.until(ChronoLocalDate endDateExclusive);
+
+    Period.between(LocalDate dt, LocalDate dt2);
+
+
+
+
+
+
+
+
+
+
+
 
 
