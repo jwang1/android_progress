@@ -3060,6 +3060,21 @@ Actions:
 
 
 
+1/10/18 (Wed) 
+
+
+  1. Yeah, days back to Angular 5 
+
+     1.1) Angular 5 Life Cycle (cont'd) 
+
+	      template-local-variable only available @ngAfterViewInit ;   but it is NOT available in @ngOnInit 
+
+	 1.2) @ContentChild,  @ViewChild 
+
+	      for Template variables ...
+
+
+	 1.3) Exercise 4;   and then, the exciting "Directives"!
 
 
 
