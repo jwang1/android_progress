@@ -3078,6 +3078,43 @@ Actions:
 
 
 
+1/12/18 (Thr)
+
+  1. Modern Java Recipes 
+
+    1.1) takeWhile, dropWhile
+
+	  *) takeWhile - returns the longest prefix of elements taken from this stream that match the given predicate
+
+	      note the "prefix" 
+
+
+		  List<String> strings = Stream.of("this is a b c of some stuff".split(" "))
+		  							   .takeWhile(s -> !s.equals("of"))
+									   .collect(Collectors.toList());
+
+		  assertEquals(List.of("this", "is", "a", "b", "c"),  strings);
+
+
+
+     *) dropWhile 
+
+	      List<String> strs = Stream.of("this is a b c of some stuff".split(" "))
+		  							.dropWhile(s -> !s.equals("of"))
+									.collect(Collectors.toList());
+
+		  assertEquals(List.of("of", "some", "stuff"), strs);
+
+
+
+    *)  
+
+	   List<Integer> nbrs = (new Random()).ints(50, 0, 100)
+	                          .boxed()
+							  .sorted(Comparator.reverseOrder())
+							  .takeWhile(n -> n >= 90)
+							  .collect(Collectors.toList());
+
 
 
 
