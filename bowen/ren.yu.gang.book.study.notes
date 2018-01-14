@@ -3120,5 +3120,79 @@ Actions:
 
 
 
+1/14/18 (Sat)
 
+  1. did Blockchain study - in separate notes
+
+  2. HTML & CSS - Jon Duckett 2010
+
+     2.1) BLOCK elements
+	      
+		  <h1>, <p>, <ul>, <li>
+
+	 2.2) Inline elements
+
+	      <a>, <b>, <em>, <img>
+
+	 2.3) Grouping text & elements in a BLOCK
+
+	     <div>
+
+
+	 2.4) Grouping text & elements INLINE
+
+	     <span>
+
+
+	 2.5) IFRAMES  (Inline frame) - open a window in a page to display ANOTHER PAGE
+
+	      like embed Google Map,
+
+		  or, show Google Ads  (DFP)
+
+		  *) src attribute - specify URL
+
+		  *) height
+		  *) width
+
+		  *) scrolling
+
+		  *) frameborder
+
+		  *) seamless
+
+
+	 2.6) Information about a PAGE
+
+	      *) <meta> - lives inside <head> element
+
+		     ^  description - commonly used by "search engine" to understand what this page is aboule, max text < 155 chars
+
+			 ^  keyword - comma separated words that a user might search on to find the page.
+
+			 ^  robots - whether search enginers should add this page to their search results or not.  
+
+			 ^  author - author of the page
+
+			 ^  pragma - prevents browser from caching the page, chaching LOCALLY to save time downloading it on subsequent visits
+
+			 ^  expires - when cache should expire.
+
+	
+	 2.7)  Escape Characters
+
+	      *)  <  - less-than sign,  &lt;     (&#60;)
+
+
+
+
+	 2.8)  <video  poster="..."  width="400" height="320"  preload controls loop>
+	         <source src="video/puppy.mp4" type='video/mp4;codes="avc1.42E01E, mp4a.40.2"' />
+		   </video>
+		   
+
+
+
+
+          
 
