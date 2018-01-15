@@ -3422,6 +3422,158 @@ Actions:
 
 
 
+		ray [2:20 PM]
+		*@font-face*
+
+		allows you to use a font, even if it is NOT installed on user’s computer;  by allowing you to specify a PATH to a copy of the font, which will be downloaded if NOT already on user’s computer.
+
+		*Make sure the font’s License allows such download!*
+
+		1. *font-family*
+
+		 2. *src*
+
+		 3. *format*
+
+		<------------------------------------------------------------------------------------------
+
+		ray [2:26 PM]
+		*font-weight*  — normal ; bold
+
+		*font-style* — normal, italic, oblique
+
+		*text-transform*  —  uppercase, lowercase, capitalize
+
+		  h1 {
+			text-transform: uppercase;}
+
+		*text-decoration* —  none,  underline, overline, line-through, blink
+
+		ray [2:59 PM]
+		<------------------------------------------------------------------------------------------
+
+		*Leading (pronounced as ledding)*
+
+		*line-height* — a term typographers use for VERTICAL space between lines of text.   (*descender*, *ascender*)
+
+		*letter-spacing, word-spacing*
+
+		  h2 {
+		   letter-spacing: 0.2em; }
+
+		*text-align*  — left, right, center, justify 
+
+		*vertical-align* — baseline, sub, super, top, text-top, middle, bottom, text-bottom
+
+		*text-indent* - to indent the 1st line of text within an element.   # of indents, can be expressed as in px or em.
+
+		*text-shadow* —  becomes commonly used despite lacking support in all browser.    --- create a drop shadow which is a dark version of the word just behind it, and slightly offset.  
+
+		   h3 {
+			  text-shadow: -1px -2px #666666; }
+
+		   _1st value indicates how FAR to the left or right the shadow should fall_
+
+		  _2nd value about TOP or BOTTOM the shadow should fall_
+
+		  _3rd value is optional and specifies the amount of BLUR that should apply to the shadow_
+
+		 _4th value is the color of drop shadow_
+
+		<------------------------------------------------------------------------------------------
+
+
+
+
+		ray [3:07 PM]
+		*:first-letter,   :first-line*  — specifies different value for 1st letter or line
+
+		 p.intro:first-letter {
+		   font-size: 200%; }
+
+		*:link, :visited* — browsers tend to show links in blue with an underline by DEFAULT;  and changing color of links after being visited.
+
+		in CSS, there are 2 *pseudo-classes* allowing doing so;
+
+		 a:link {
+			  color: deeppink;
+			  text-decoration: none; }
+
+		 a:visited { 
+			  color: black; }
+
+		<------------------------------------------------------------------------------------------
+
+
+		*responding to users*
+
+		1. *:hover*
+
+		ray [3:09 PM]
+		added this CSS snippet: :hover, :active, :focus 
+		input {
+			padding: 6px 12px 6px 12px;
+			border: 1px solid #665544;
+			color: #ffffff;
+		}
+		​
+		input.submit:hover {
+			background-color: #665544;}
+		​
+		input.submit:active {
+			background-color: chocolate;}
+		​
+		input.text {
+			color: #cccccc; }
+		​
+		input.text:focus {
+			color: #665544;}
+
+
+
+		Add CommentCollapse 
+
+
+
+
+
+		ray [3:19 PM]
+		<------------------------------------------------------------------------------------------
+
+		*Attribute Selectors*
+
+		  *Selector          Meaning                                          Example*    
+		1. *existence* — [ ]  matches specific attribute,        p[class]  (select p element with an attribute called class) 
+
+		2.  *Equality*   — [=]  matches  attrs and val                 p[class=“dog”] targets any <p> with attr called _class_ whose value is dog 
+
+
+		3.  *Space*  —      [~=]          p[class~=“dog”]  targets any <p> with attr called class whos value is a *LIST* of space-separated words, one of which is dog
+
+		4. *prefix*  — [^=]                  p[attr^“d”]  targets any <p> with an attribute _whose value_ begins with letter “d”
+
+		5. *substring* — [*=]              p[attr*“do”]  targets any <p> with attribute _whose value_ begins with the letter “d”
+
+		6. *suffix*  — [$=]                   p[attr$“g”]   targets any <p> with attribute _whose value_ ends with letter “g”
+
+		   <------------------------------------------------------------------------------------------
+
+		ray [3:28 PM]
+		*Styling HTML with CSS (P5D14) - Live Coding with Jesse — a PART of React video tutorial*
+
+		https://www.youtube.com/watch?v=iWbJ9C3lIWQ
+
+		<------------------------------------------------------------------------------------------ (edited)
+
+
+
+
+
+
+
+
+
+
 
 
 
