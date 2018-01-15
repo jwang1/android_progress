@@ -3193,6 +3193,62 @@ Actions:
 
 
 
+1/14/18 (Sun) 
 
+  1. Studying CSS -  HTML & CSS - Jon Duckett 
+
+
+		*Study - HTML & CSS - Jon Duckett*
+
+		*CSS SELECTORS*
+
+		1. *universal selector*  -  apply to ALL elements in the document;  
+
+			   * { } 
+
+
+		2.  *type selector* - match element names
+
+			   h1, h2, h3  {}
+
+		3. *class selector*  - css class
+
+			.note { }
+
+
+		4.  *ID Selector* -  an element whose *id attribute* matches 
+
+			#introduction { }
+
+		5. *child selector* -  matches an element that is a direct child of another 
+
+			li>a { }       -- Targets any <a> elements that are children of an <li> element  (*but not other <a> elements in the page*)  
+
+		6.  *descendant selector* -  matches an element that is a descendent of another specified element (not just a direct child of that element —  so, can be child, grandchild, and grand-grand-child etc)
+
+			p a { }    --  targets any <a> elements that sit inside a <p> element, even if there are other elements nested between them!
+
+		7.  *Adjacent  sibling selector*  --  matching an element that is the next sibling of another  
+
+			h1+p { }   --  Targets the 1st <p> element after any <h1> element  (but not other <p> element)
+
+		8.  *General Sibling Selector*  — matches an element that is a sibling of another, although it does not hae to be the directly preceding element
+
+			h1~p  {  }   -- if you had 2 <p> elements that are siblings of an <h1> element, this rule would apply to BOTH of them.
+
+		<------------------------------------------------------------------------------------------
+
+
+     
           
+
+
+
+
+
+
+
+
+
+
 
