@@ -3242,9 +3242,183 @@ Actions:
      
           
 
+1/15/18 (Mon) -  
+
+  1.  Understand CSS cascading - write general styling first which applys to all;  and then, overrides individual elements with specific rule, to override the general styles.
+
+
+		*resolution for two or more RULES applied to the same element at the same time*
+
+		1. *LAST RULE*  --  when 2 selectors are identical, the LAST one takes precedence
+
+		2. *SPECIFICITY*  —  if one selector is more specific than the others, the more specific one take precedence.
+
+		  h1 is more specific than *
+
+		  p  b  is more specific than p
+
+		  p#intro is more specific than p
+
+
+		3. *IMPORTANT*  —  adding *!important* after any property value,  to indicate that it should be considered _more important_ than _other rules applying to the same element_.
+		[11:57 AM]
+		*Understanding how CSS rules cascade, means we can write simpler style sheets,  because we can create generic rules that apply to most elements and then override the properties of individual elements that need to appear differently.*
 
 
 
+
+
+ 2. CSS Inheritance :
+
+    (note, the * added were markdown syntax, not css ones)
+
+		*Inheritance*
+
+		1. *font-family* property is inherited
+
+		2. *background-color,  border properties*  NOT inherited
+
+		3. *can force lot of properties to inherit from parent*
+
+		for example:
+
+		body {
+		 font-family: Arial, Verdana, sans-serif;
+		 padding: 10px; }
+
+		.page {
+		 border: 1px solid #665544;
+		 background-color: #efefef;
+
+		 padding:  *inherit*; }
+
+
+
+
+
+  3.  CSS1 released in 1996
+      CSS2          in 1998
+      CSS3          in 
+
+
+      following  
+
+
+
+  4. COLOR
+
+		<------------------------------------------------------------------------------------------
+
+		*CSS bug (sometimes called browser quirk)*
+
+		<------------------------------------------------------------------------------------------ (edited)
+
+		ray [12:48 PM]
+		*COLOR*
+
+		1. *RGB*     —  rgb(100, 100, 90)
+
+		2.  *HEX*    —  #ee3e80
+
+		3.  *Name*  —  DarkCyan
+
+		4.  *HSLA*  — CSS3 new way,  (later chapter)
+
+		*CSS treats HTML element as if it appears in a box*,   so background-color applies to the some rectangle stuff / box;
+
+		Color - 
+
+		  *HUE* — ?  near to the colloquial idea of color    --->   it is basically decides the COLOR
+
+		  *satuation* — gray,  or light;   at Max saturation, there are no gray
+
+
+
+		<------------------------------------------------------------------------------------------
+
+		*Contrast*
+
+		1.  *low contrast*
+
+		 2.  *high contrast*
+
+		 3.  *medium contrast*
+
+
+		*CSS3: Opacity*
+
+		   rgba(0, 0, 0, 0.5) 
+
+		   *rgba only affect the element on which it is applied,  NOT child elements*
+
+		<------------------------------------------------------------------------------------------
+		[12:58 PM]
+		*HSL and HSLA*
+
+		HSL — Hue, Saturation, and Lightness
+
+		HSLA  —  A for alpha (opaque stuff)
+
+			H — for HUE,  the 0 to 360 degress,   (in zhong-wen,  se-huan)
+
+			S  —  expressed as % ,   (max saturation has no gray)
+
+			L  — lightness,  as %,  (max saturation has no black) 
+
+			A —  Alpha,  0.5 means 50% transparency …
+
+		<------------------------------------------------------------------------------------------
+
+
+
+  5.  TEXT
+
+		1. *serif* — extra details on the ends of main strokes of letters.  (bottom has very short thin line)  
+
+		   *used long time in PRINT business; saying easier to read*
+
+		2. *sans-serif* — having straight ends to letter, 
+
+		   *screens have a lower resolution than print, so, if the text is small, sans-serif fonts can be clearer to read*
+
+		3. *“monospace* — every letter in a monospace (or fixed_width) font is the *SAME WIDTH*
+
+		  *commonly used for code, because they align nicely, making the text easier to FOLLOW*
+
+
+		<------------------------------------------------------------------------------------------
+
+		ray [1:36 PM]
+		4. *Weight*  —  light, medium, bold, black
+
+				 not only adds *emphasis*, but also affect amount of *white space*, and *contrast* on page
+
+		 5. *style*  — Normal, Italic, Oblique
+
+				 oblique font styles take the _normal style* and put it on an *angule*
+
+			   
+		 6.  *Stretch*  — Condensed, Regular, Extended
+
+			  _condensed fonts_ closer together,  letters are thinner ,
+
+			 _extended fonts_ thicker and further apart.
+
+		<------------------------------------------------------------------------------------------
+		[1:38 PM]
+		*Fonts layout (think of these 2 words ---     The xyz*
+
+		1. *baseline* — the letters site in
+
+		 2. *x-height* — height of letter x
+
+		 3.  *Cap height* — top of flat letters
+
+		 4. *Ascender* — above the cap height
+
+		 5.  *descender* — below the baseline.
+
+		<------------------------------------------------------------------------------------------
 
 
 
