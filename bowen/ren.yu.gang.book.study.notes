@@ -3569,6 +3569,24 @@ Actions:
 
 
 
+  2.  Angular 5 study 
+
+      -->  worked on "Course Project"
+
+	      2.1) using @Input, @Output, @ViewChild extensively
+
+		       *) to passing data from parent-component to child-component,  (@Input inside child-component's typescript)
+			   *) OR from child-component to parent-component (@output EventEmitter from child-component's typescript)
+
+				   (above 2 forms;  at parent-component Template, either string-interpolation, or event-binding) 
+
+			   *) OR parent-component using @ViewChild on parent-component's own Template variable (which can be on html elements, or child-component)
+
+
+
+
+
+
 
 
 
