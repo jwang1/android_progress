@@ -3612,5 +3612,75 @@ Actions:
 
 
 
+1/16/18 (Tue) 
+
+  1. CSS - Jon Buckett 
+
+		[11:16 PM]
+		*visibility*
+
+		— hidden 
+
+		— visible  
+
+		```visibility:  hidden;```
+		  — hides the elem
+
+		<------------------------------------------------------------------------------------------
+		[11:18 PM]
+		*border iamges  border-image*
+
+		— applies an image to the border of any box.
+
+		ray [11:19 PM]
+		added this CSS snippet: Untitled 
+		​
+		p.one {
+			-moz-border-image: url("images/dots.gif") 11 11 11 11 stretch;
+			
+			-webkit-border-image: url("images/dots.gif") 11 11 11 11 stretch;
+
+
+		Add CommentClick to expand inline (9 lines)
+
+		ray [11:20 PM]
+		:point_up:  *-moz-border-image*   *-webkit-border-image* properties are NOT in css specification;  but they help earlier versions of Chrome, Firefox and Safari to display those effect.
+		[11:24 PM]
+		<------------------------------------------------------------------------------------------
+
+
+		*box-shadow* (edited)
+
+		ray [11:30 PM]
+		added this CSS snippet: Untitled 
+		​
+		p.one {
+			-moz-box-shadow: -5px -5px #777777;
+			-webkit-box-shadow: -5px -5px #777777;
+			box-shadown: -5px -5px #777777;
+
+
+		Add CommentClick to expand inline (6 lines)
+
+		ray [11:30 PM]
+		*border-radius  (rounded corners)*
+
+		ray [11:32 PM]
+		added this CSS snippet: Untitled 
+		p.one {
+		  border-radius: 10px;
+		  -moz-border-radius: 10px;
+		  -webkit-border-radius: 10px;
+
+
+		Add CommentClick to expand inline (6 lines)
+
+		ray [11:34 PM]
+		*elliptical shapes*
+		[11:34 PM]
+		_border-radius: 80px  50px;
+		[11:34 PM]
+		```border-top-left-radius:  80px  50px;```
+
 
 
