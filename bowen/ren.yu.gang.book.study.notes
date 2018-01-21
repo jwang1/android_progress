@@ -3684,3 +3684,98 @@ Actions:
 
 
 
+
+
+
+1/20/18 (Sat) -- 
+
+  1. not programming studies Friday (1/19/18)
+
+  2. Angular 5 - Directives
+
+     mentioned (https://www.udemy.com/the-complete-guide-to-angular-2/learn/v4/t/lecture/6656182?start=0) 
+	   <div *ngIf='!onlyOdd'> ...
+
+	   is translated into the following by Angular 
+
+	   <ng-template [ngIf]='!onlyOdd'> ....
+
+
+  3. CSS -- Jon Buckett 
+
+		[10:08 PM]
+		*How to identify keywords and phrases*
+		1. brainstorm
+		2. organize
+		3. research
+		4. compare
+		5. refine
+		6. map
+
+		<------------------------------------------------------------------------------------------
+
+		[10:11 PM]
+		*analytics: learning about your visitors*
+
+		_signing up_
+		_how it works_
+		_the tracking code_
+
+		*how many people are coming to your site?*
+		_visits_
+		_unique visits_
+		_page views_
+		_pages per visit_
+		_average time on site_
+		_date selector_
+		_export_
+
+
+		*what are your visitors looking at?*
+		_pages_
+		_landing pages_
+		_top exit pages_
+		_bounce rate_
+
+		*where are your visitors coming from?*
+		_referrers_
+		_direct_
+		_search terms_
+		_advanced features_
+
+		<------------------------------------------------------------------------------------------
+
+		*Domain names and hosting*
+		_domain names_
+		_web hosting_
+		_disk space_
+		_bandwidth_
+		_backups_
+		_email accounts_
+		_server-side languages and databases_
+		_hosted services_
+
+		<------------------------------------------------------------------------------------------
+
+		[10:13 PM]
+		*MY OWN THINKING ON DESIGN*
+
+		-->  The future *Argument Reality*  and *Virtual Reality*  for User Experience;  specially on *Traveling Industries*  -->  it’d be great to see, touch, get in the hotels, places,  before plan the trip!
+
+		<------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
