@@ -3767,6 +3767,73 @@ Actions:
 
 
 
+1/21/2018 (Sun) 
+
+  1. Go Over CSS - Jon Buckett 
+ 
+     (Konfusion says:  Go over what we learned, and we learn new things)
+
+
+		ray [2:44 PM]
+		added this CSS snippet: @font-face 
+		@font-face {
+			font-family: 'ChunkFiveRegular';
+			src: url('fonts/chunkfive.eot');
+		}
+		​
+		h1, h2 {
+			font-family: ChunFiveRegular, Georgia, serif;
+		}
+
+
+
+		Add CommentCollapse 
+
+		ray [2:44 PM]
+		<------------------------------------------------------------------------------------------
+		[2:46 PM]
+		*font format*
+
+		1. eot
+		2. woff
+		3. tff / otf
+		4. svg
+
+		NOTE,  Chrome and Safari support *svg*,  and some ttf / otf;
+
+					 but IE9  not supporting *svg* yet.
+
+		<------------------------------------------------------------------------------------------
+
+		ray [2:53 PM]
+		*responding to users - pseudo classes*
+
+		1. :hover
+		2. :active
+		3. :focus
+
+		<------------------------------------------------------------------------------------------
+
+		*attribute selectors*
+
+		1. [ ]    —   p[class]  — targets any <p> element which has attribute of *class*
+
+		2. [=]    —  p[class=“dog”]   — targets any <p> element whose class attribute class has value of “dog”
+
+		3. [~=]  — p[class~=“dog”]  — targets any <p> element whose class attribute value is a list of *comma* delimited words, and one of the words is “dog”
+
+		4. [^=]  —  p[attr^“d”]  — targets any <p> element which has an attribute whose value begins with “d” 
+
+		5. [*=]  — p[attr*“do”]  — targets any <p> element which has an attribute whose value contains letters *do*
+
+		6. [$=]  — p[attr$“g”] — targets any <p> element which has an attribute whose value ends with letter “g” 
+
+		<------------------------------------------------------------------------------------------
+
+
+
+
+
 
 
 
