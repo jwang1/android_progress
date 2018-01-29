@@ -3832,9 +3832,28 @@ Actions:
 
 
 
+  2.  Angular 5 - course project 
+
+      2.1 added Directive for the dropdown menu ;  using @HostListener and @HostBinding
+
+      2.2 "services"  --  something like AOP -- cross-cutting;  centralized work (logging, security, data storage) ...
 
 
 
+
+1/27/18 (Sat) 
+
+  1. CSS - 
+
+     *)  Margin - sits outside the edge of the border.  Set margin to create a gap between the borders of two adjacent boxes.
+
+	 *)  Padding - space between border of a box and any contents contained within it.
+
+
+
+1/28/18 (Sun)
+
+  1. Angular 5 - yeah,  a while
 
 
 
