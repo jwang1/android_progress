@@ -3858,6 +3858,400 @@ Actions:
 
 
 
+2/3/18 (Sat) 
+
+  1. yeah, been a while - 
+   
+     back to 1 time - always tired after back from work. need to sui-jiao earlier.
+
+  2. "Effective Java" - Joshua Bloch (3rd Ed)
+
+     
+		*2/3/19 (Sat)*
+
+		*Effective Java - 3rd Ed,  Joshua Bloch*
+
+		Feature             Items                   Release
+		Lambdas           42-44                  Java 8 
+		Streams             45-48                  Java 8
+		Optionals           55                        Java 8
+		Default
+		  mthods             21                        Java 8
+		try-with-
+		   resources         9                          Java 7
+		@SafeVarargs      32                       Java 7
+		Modules              15                       Java 9
+		<-----------------------------------------------------------------------------
+		*Chapter 2*
+		_Creating and Destroying Objects_
+
+		Item 1: *consider static factory methods instead of ctors*
+
+
+		public static Boolean valueOf(boolean b) {
+			return b ? Boolean.TRUE : Boolean.FALSE;
+		}
+
+		// Static factory method allows to return SUB-TYPE! 
+		// while ctors only returns same-type.
+
+
+		ray [12:45 PM]
+		*some common name for static factory methods*
+
+		*from*      —   Date.from(instant)
+
+		*of*           —   EnumSet.of(JACK, QUEEN, KING)
+
+		*valueOf*  —  BigInteger.valueOf(Integer.MAX_VALUE)
+
+		*instance or getInstance*  — StackWalker.getInstance(options);
+
+		*create or newInstance* — Array.newInstance(classObject, arrayLen)
+
+		*getType*  — Files.getFileStore(path)
+
+		*newType*  — Files.newBufferedReader(path):
+
+		*type*    — Collections.list(legacyLitany);
+
+		<-----------------------------------------------------------------------------
+
+		*Item 2  — consider a builder when faced with many constructor parameters*
+
+
+		ray [12:49 PM]
+
+		public class ToBuild {
+			private final int a;
+			private final int b;
+			private final int c;
+			
+			public static class Builder {
+				// required para
+				private final int a;
+				private final int b;
+				
+				// optional params
+				private final int c = 0;
+				
+				public Builder(int a, int b) {
+					this.a = a;
+					this.b = b;
+				}
+				
+				public Builder addC(int c) {
+					this.c = c;
+					return c;
+				}
+				
+				public ToBuild build() {
+					return new ToBuild(this);
+				}
+			}
+			
+			// Note the private ctor
+			private ToBuild(Builder bld) {
+				a = bld.a;
+				b = bld.b;
+				c = bld.c;
+			}
+		}
+
+		// usage
+		ToBuild tB = new ToBuild.Builder(1,2).addC(3).build();
+
+
+
+		// *builder pattern well suited to class hierarchies*
+
+
+			// *builder pattern well suited to class hierarchies*
+
+
+		public abstract class Pizza {
+
+			public enum Topping { HAM, MUSHROOM, ONION, PEPPER, SAUSAGE }
+
+			final Set<Topping> toppings;
+			
+			// Pizza.Builder is a "Generic Type" with "recursive type parameter (item 30)
+			// This along with abstract "self" method, allows method 
+			// chaining to work properly in subclasses, without 
+			// the need for casts. 
+			// This workaround for the fact that Java lacks a 
+			// "self type" is know as "simulated self-type" idiom
+			abstract static class Builder<T extends Builder<T>> {
+				EnumSet<Topping> toppings = EnumSet.noneOf(Topping.class):
+				
+				public T addTopping(Topping topping) {
+					toppings.add(topping);
+					
+					return self();   // abstract method to return "this"
+				}
+				
+				// build method
+				abstract Pizza build();
+				
+				// subclasses must override this method to return "this" object
+				protected abstract T self();
+			}
+			
+			Pizza<Builder<?> builder> {
+				toppings = builder.toppings.clone();  // ? why use clone ?
+			}
+		}
+				
+				
+				
+
+		// Sub-classing
+		public class NyPizza extends Pizza {
+			public enum Size { SMALL, MEDIUM, LARGE }
+			
+			private final Size size;
+			
+			public static class Builder extends Pizza.Builder<Builder> {
+				private final Size size;
+				
+				public Builder(Size size) {
+					this.size = Objects.requireNonNull(size);
+				}
+				
+				@Override
+				public NyPizza build() {
+					return new NyPizza(this);
+				}
+				
+				@Override
+				protected NyPizza Builder self() {
+					return this;
+				}
+				
+				// private ctor -- only called in this NyPizza, by NyPizza.Builder inner class.
+				private NyPizza(Builder builder) {
+					// NyPizza subclass Pizza abstract class
+					super(builder);
+					size = builder.size;
+				}
+			}
+		}
+
+
+		// Another subclass of Pizza
+		public class Calzon extends Pizza {
+			private final boolean sauceInside;
+			
+			public static Builder extends Pizza.Builder<Builder> {
+				private final boolean sauceInside;
+				
+				public Builder sauceInside() {
+					sauceInside = true;
+					return this;
+				}
+				
+				// used "coveraint return typing" technique, requiring no-type-casting later on
+				@Override 
+				public Calzone build() {
+					return new Calzon(this);
+				}
+				
+				@Override
+				protected Builder self() {
+					return this;
+				}
+				
+			}
+			
+			// private ctor
+			private Calzone(Builder builder) {
+				// init parent
+				super(builder);
+				
+				// own work
+				sauceInside = builder.sauceInside;
+			}
+		}
+
+		// Usage: 
+		NyPizza np = new NyPizza.Builder(MEDIUM)
+			.addTopping(SAUSAGE).addTopping(ONION)
+			.build();
+
+		Calzone cz = new Calzone.Builder()
+			.addTopping(HAM)
+			.sauceInside()
+			.build();
+
+
+
+
+		tem 3:  enforce singleton property with a private constructor or an enum type*
+
+		1. _making a class a singleton can make it difficult to test its clients, because it’s impossible to substitute a mock for singleton *unless it implements an interface that serves as its type*
+
+		ray [2:12 PM]
+
+
+		public class Singleton {
+			public static final Singleton INSTANCE = new Singleton();
+			
+			private Singleton() {
+			}
+			
+			public void otherMethod() {
+			}
+		}
+
+		// Usage
+		Singleton s = Singleton.INSTANCE;
+
+
+		// singleton with static factory
+
+		public class Singleton {
+			private static final Singleton INSTANCE = new Singleton();
+			
+			private Singleton() {
+			}
+			
+			public static Singleton getInstance() {
+				return INSTANCE;
+			}
+			public void otherMethod() {
+			}
+		}
+
+		// usage
+		Singleton s = Singleton.getInstance();
+
+
+
+		// single-element enum type is often the BEST way to 
+		// implement a singleton.
+		//
+		// Only limitation is:  cannot use this mechanism IF 
+		// your singleton must extend a superclass other than Enum.
+		//
+		//
+		// But, the advantages of this mechanism are:
+		// 1) provides an ironclad guarantee against multiple instantiation
+		// 2) Concise
+		// 3) provides SERIALIZATION for free
+
+
+		public enum Singleton {
+			INSTANCE;
+			
+			public void otherMethod() {
+			}
+		}
+
+		// usage
+		Singleton s = INSTANCE;
+
+
+		ray [2:24 PM]
+		*item 4: enforce noninstantiability with a _private constructor*
+
+		^^ used in item 3 for “singleton”
+
+		<-----------------------------------------------------------------------------
+
+
+		ray [2:36 PM]
+		*item 5: prefer dependency injection to hardwiring resource (spring framework uses this a lot)*
+
+		*^^ static utility classes and singletons are inappropriate for classes whose behavior is parameterized by an underlying resource*
+
+		*pass the resource into the constructor or setter when creating a new instance - is one form of DEPENDENCY INJECTION*   <-- such DI is used everywhere, that people NOT realize IT.
+
+
+		*a useful variant of the pattern is to pass a resource factory to the constructor;  such factories embody the Factory Method Pattern*
+
+		`Mosaic create(Supplier<? extends Tile> tileFactory) {...}`
+
+		*^^ the Java 8 Supplier<T> interface is perfect for representing factories.  allow the client to pass in a factory that creates any subtype of a specified type*
+		<-----------------------------------------------------------------------------
+
+
+		tem 6:  avoid creating unnecessary objects - using Flyweight pattern to get objects from POOL*
+
+		*Don’t do following*
+		`String s = new String("test");`
+
+		*^^replace the above with literal*
+		`String s = "test";   // no new object created`
+
+
+		*use Pattern instead of String.matches*
+
+		`// performance can be improved!  
+		s.matches(“^abc”);`
+
+		*^^ replace with Pattern p = Pattern.compile("^abc");   return p.matchers(str).matches();*
+
+		*^^ the reason is,  String.matches is easiest way to check if a string matches a regular expression;  but NOT suitable for repeated use in performance-critical situations;  because INTERNALLY it creates a Pattern INSTANCE for the regular express and uses it ONLY ONCE, and then that pattern was garbage collected!*
+
+		<-----------------------------------------------------------------------------
+
+
+		*performance, the following, creates LOTS of Objects, and used once, and garbage collected*
+
+		```private static long sum() {
+		  Long sum = 0L;
+		  for (long i = 0; i <= Integer.MAX_VALUE; i++) {
+			sum += i;
+		  }
+		  return sum;
+		}
+		```
+
+
+		<-----------------------------------------------------------------------------
+
+		*Item 7: elimiate obsolete object references*
+
+		*whenever a class manages its own memory, he programmer should be alert for memory leaks” 
+
+		*another common source of memory leaks is caches*
+
+		*a third common source of memory leaks is listeners and other callbacks* 
+
+		<-----------------------------------------------------------------------------
+
+
+
+
+
+
+					
+
+			
+				
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
