@@ -4222,6 +4222,37 @@ Actions:
 
 
 
+2/19/18 (Mon) 
+
+  1. being quite a while
+
+  2. Facebook's Yarn Package Manager 
+
+     2.1  Install on Mac ,   when nvm is used
+
+
+	 yarnpkg.com/lang/en/docs/install/
+
+	 brew install yarn --without-node
+
+
+	 2.2  using Yarn with Angular 
+
+	   https://theinfogrid.com/tech/developers/angular/setup-angular-touse-yarn-package-manager/
+
+
+
+  3. Sharing Data Between Angular Components - Four Methods
+
+    ==>   using "services"  and the @Output EventEmitter in the services;  and subscribe in components.
+
+
+  4. Improved the Exercise 5 (services),  and 
+
+     starting reviewing what've studied by far.
+
+
+  5. Need to go for "Routing" ...	 
 
 
 
