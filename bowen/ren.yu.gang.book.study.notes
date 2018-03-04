@@ -4256,9 +4256,128 @@ Actions:
 
 
 
-					
 
-			
+
+2/25/18 (Sun) 
+					
+  1. JavaScript & JQuery - Jon Duckett 
+
+    1.1  to "DELETE" a property of an object,  do the following
+
+	     var anObj = { name: 'Jon',  age: 54 };
+
+		 delete anObj.age 
+
+
+
+    1.2  "this" keyword is a "reference" to the "object" in which the "function" operates.
+
+
+	1.3  "function" - when defined NOT in any object;  then, it's in "Global" scope, defined in "window" object;
+
+	     When a function is defined inside an object; then, the function becomes a 'Method';  
+
+
+
+         "Context" <-- the function/method EXECUTION CONTEXT .... ;   
+
+
+		 var width = 111;
+		 var shape = {width: 300};
+
+		 var showWidth = function() {
+		     document.write(this.width);   // note, "this" will be the execution context
+		 };
+
+		 shape.getWidth = showWidth ;      // assign the "window" function showWidth to object-shape's  getWidth (a method)
+
+		 shape.getWidth() ;                //  note, "this" in the showWidth function,  becomes the "executing object",  which is "shape" object;  so,  "this" means the "shape" obj.
+
+
+
+   1.4  three Groups of built-in objects 
+
+       1.4.1  "window" -- current browser window or tab
+	             "document" -- current web page
+				 "history"  -- pages in browser history
+				 "location" -- URL of current page
+				 "navigator" -- information about browser
+				 "screen"    -- device's display information
+
+
+
+       1.4.2   "document object model"  -- tree model
+
+
+	   1.4.3   "global javascript objects"  -- string / number /boolean / date /math / regex
+
+
+	          Undefined -- a variable that has been "declared", but no value has been assigned to it yet.
+
+			  null      -- a variable with no value - it may have had one at some point, but no longer has a value.
+
+
+			  "strict equal to"   ===  :  check both "data type" and "value" are same !
+
+			      so,   '3' === 3   returns false
+				        '3' === '3' returns true
+
+
+              arrays    -- are always objects 
+			  functions -- are always objects, with additional feature: they are callable.
+
+
+
+
+  1.5 Cross-Site Scripting (XSS) attacks (p228)
+
+ 
+
+  1.6 Event Flow (p260)
+
+     "Event Bubbling"  --  event starts at the most specifi node, and flows outwards to the least specific one.  Widely spupported
+
+	 "Event capturing" --  event starts at the least specific node and flows inwards to the most specific one.  not supported in IE8 and earlier.
+
+
+
+  1.7  JQuery -- 
+
+
+     1.7.1  checking a page is ready to work with
+
+	     $(document).ready(function() {
+		    // your script goes here
+		 });
+
+
+	   jQuery shortcut
+
+		 $(function() {
+		    // your script goes here
+		 });
+
+
+
+
+  1.8  what the book missed
+
+     1.8.1   "hoisting"  --  inside a function;  the local variable scope is "function level",   the variable defined in the middle in the function/method;  that variable may be moved up, after optimize ;  <-- hoisting
+
+            P456 mentioned some:  any variables and functions within each "execution context" are created before they are executed. 
+			The preparation phase is often described as taking all of the variables and functions and hosting them to the top of the execution context.
+
+
+
+
+	1.8.1.  "Execution context" -- each execution context also creates its own variables object.  This object contains details of all of the variables, functions, and parameters for that execution context.
+
+
+
+
+	 1.8.2   "closure"   --  the variable of the function/method/object is "captured" inside the "closure";  and exists even when the closing/outside object/func/method is out of scope.
+
+
 				
 				
 
