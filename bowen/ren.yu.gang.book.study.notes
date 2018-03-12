@@ -4380,6 +4380,76 @@ Actions:
 
 				
 				
+3/11/18 (Sun) 
+
+   1. NumPy  --  so that better understand Francois Chollet's  "Deep Learning with Python"  
+
+
+		*NumPy operations*
+
+		1.  import numpy as np
+
+		2.  a = np.arange(8)
+
+		3.  a = a.reshape(2,4)
+
+		4.  aT = np.transpose(a)
+
+			 or 
+
+			 aT = a.T 
+
+		5.  aFlat = a.flatten()
+
+			 aFlat = a.ravel()
+
+		6.   matrix multiplication
+
+			 np.dot(a, a.T)  
+
+
+			 np.dot(a,  np.transpose(a))
+
+
+		7.  stacking 
+
+			np.vstack( (a, a) )    
+
+			^^ make the same a matrix stacking vertically 
+
+
+		   np.hstack( (a, a) )
+
+		8.  *Broadcasting*
+
+			 c = np.arange(8).reshape(2, 4)
+			 d = np.arange(4).reshape(1,4)
+
+			  cTd = c * d
+
+			 ^^ here, d tensor has lower dimension than that of c;   so,  d will be broadcasted …. 
+
+		9.  Masking
+
+		     print( a > 3 )
+
+		     print(  a[ a > 3 ] )      # this indexing for elements > 3;  so, only prints elements > 3 with po
+
+        10.  *very beautiful way to get 4D tensor*
+
+			  a = np.arange(2 * 3 * 4 * 2).reshape(2, 3, 4, 2)
+
+			  And then, the following gets all-cube’s  first-face’s  all-rows last-column 
+
+			  a[ :,  0,  :,  -1 ] 
+
+
+		11.  Get PyDoc from command line 
+
+             help(np.where)
+
+		<-------------------------------------------------------------------------------------------      
+
 
 
 
