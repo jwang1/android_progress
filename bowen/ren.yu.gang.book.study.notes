@@ -4451,6 +4451,97 @@ Actions:
 		<-------------------------------------------------------------------------------------------      
 
 
+  2. Deep Learning with Python -- Francois Chollet 
+
+      P83 "neural-network architects" 
+
+	      doing arts of selecting models, with some best practice and principals;  
+
+		  only PRACTICES can get really better at picking good models!
+
+
+
+3/14/18 (Wed) ---
+
+  Good "gcloud" command line documents :  https://cloud.google.com/compute/docs/gcloud-compute/#set_default_zone_and_region_in_your_local_client
+
+
+
+
+     Google Cloud Computing -- for Deep Learning with Python -- Francois Chollet 
+
+	 1)  command line   -- gcloud 
+
+	     https://medium.com/@jamsawamsa/running-a-google-cloud-gpu-for-fast-ai-for-free-5f89c707bae6
+
+		 *)  Google Cloud SDK  (I've already downloaded for the time-tracker project)
+
+		 https://cloud.google.com/sdk/downloads
+
+
+
+     2) gcloud 
+
+		 2.0)  set PATH for gcloud  (in .bash_profile ;  my gcloud sdk is in local disk dir)
+	     2.1)  change project 
+			   
+			    https://stackoverflow.com/questions/46770900/how-to-change-the-project-in-gcp-using-cli-commands
+
+				gcloud config set project keras-197804   (note, I've created keras project from Google Cloud Console - web )
+
+
+          2.2) connect to google cloud instance from command line
+		  
+		  gcloud compute ssh username@instance  (where username is the google account, ie, gmail account)
+
+
+		      NOTE:  I created some ssh key  (very basic, my usual t-shi4 password)
+		      
+
+
+		  2.3) Zone (chose us-east1-c  for VM,  and local gcloud command line)
+
+		      https://cloud.google.com/compute/docs/regions-zones/changing-default-zone-region
+
+			  gcloud compute project-info describe --project keras-197804
+
+
+			  https://cloud.google.com/compute/docs/gcloud-compute/#set_default_zone_and_region_in_your_local_client
+
+
+			  gcloud config set compute/zone us-east1-c    (had to create the VM in us-east1-c where GPU available :  NVIDIA K80)
+
+
+
+          2.4) connect to the VM 
+
+		       gcloud compute ssh my-google-accnt@keras   
+
+
+			   created pass phrase  (from gcloud command line,  t-shi4)
+
+
+
+	      2.5)  up to this point, finally, logged in VM from command line : 
+
+
+		       @keras:~$ uname -a
+			   Linux keras 4.13.0-1011-gcp #15-Ubuntu SMP Mon Feb 12 16:29:04 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+
+
+
+       
+       3. Download NVIDIA cuDA support 
+
+
+	       http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/
+
+
+		   https://medium.com/@jamsawamsa/running-a-google-cloud-gpu-for-fast-ai-for-free-5f89c707bae6
+
+
+
+
 
 
 
