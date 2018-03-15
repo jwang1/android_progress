@@ -4542,6 +4542,40 @@ Actions:
 
 
 
+    ***)  Finally got GPU support,  btw, did reboot the machine, and before that, had to manually install the NVIDIA cuDA support -- SDK ...  
+
+
+			@keras:~$ nvidia-smi 
+			Thu Mar 15 04:52:52 2018       
+			+-----------------------------------------------------------------------------+
+			| NVIDIA-SMI 390.30                 Driver Version: 390.30                    |
+			|-------------------------------+----------------------+----------------------+
+			| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+			| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+			|===============================+======================+======================|
+			|   0  Tesla K80           Off  | 00000000:00:04.0 Off |                    0 |
+			| N/A   59C    P8    32W / 149W |     16MiB / 11441MiB |      0%      Default |
+			+-------------------------------+----------------------+----------------------+
+																						   
+			+-----------------------------------------------------------------------------+
+			| Processes:                                                       GPU Memory |
+			|  GPU       PID   Type   Process name                             Usage      |
+			|=============================================================================|
+			|    0      1501      G   /usr/lib/xorg/Xorg                            15MiB |
+			+-----------------------------------------------------------------------------+
+
+
+
+
+   ^^  The best document to set this :   
+
+          https://medium.com/@jamsawamsa/running-a-google-cloud-gpu-for-fast-ai-for-free-5f89c707bae6
+
+     Also,  his comp's  fast.ai  offers Free online Deep Learning courses;  But, now, we just want to concentrate on "Deep Learning with Python -- Francois Chollet"
+
+
+
+
 
 
 
