@@ -4576,6 +4576,38 @@ Actions:
 
 
 
+   *)  failed to bring up jupyter 
+
+
+   @keras:~/anaconda2/bin$ jupyter
+   Error executing Jupyter command 'start': [Errno 2] No such file or directory
+
+
+   https://github.com/jupyter/jupyter_core/issues/127  (helped solve the above error) 
+
+   jupyter-notebook
+
+
+
+
+   pip install --upgrade --force-reinstall --no-cache-dir jupyter
+
+
+
+***)  start Jupyter-notebook and access from local machine
+
+
+# the snippet to allow Google Cloud VM Jupyter to be accessed localhost (to turn on firewall rule -- from localhost command line)
+#
+# or the following can be done from Google Cloud Web App !
+#
+# export PROJECT="keras"
+# export YOUR_IP="our LOCAL machine IP"
+# gcloud compute --project "${PROJECT}" firewall-rules create "jupyter" --allow tcp:8888 --direction "INGRESS" --priority "1000" --network "default" --source-ranges "${YOUR_IP}" --target-tags "jupyter"
+#
+# after start the jupyter instance, and then we can access the jupyter (http://Google-VM-IP_address:8888/)
+
+
 
 
 
