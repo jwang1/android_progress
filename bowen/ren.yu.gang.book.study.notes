@@ -4597,17 +4597,26 @@ Actions:
 ***)  start Jupyter-notebook and access from local machine
 
 
-# the snippet to allow Google Cloud VM Jupyter to be accessed localhost (to turn on firewall rule -- from localhost command line)
-#
-# or the following can be done from Google Cloud Web App !
-#
-# export PROJECT="keras"
-# export YOUR_IP="our LOCAL machine IP"
-# gcloud compute --project "${PROJECT}" firewall-rules create "jupyter" --allow tcp:8888 --direction "INGRESS" --priority "1000" --network "default" --source-ranges "${YOUR_IP}" --target-tags "jupyter"
-#
-# after start the jupyter instance, and then we can access the jupyter (http://Google-VM-IP_address:8888/)
+		# the snippet to allow Google Cloud VM Jupyter to be accessed localhost (to turn on firewall rule -- from localhost command line)
+		#
+		# or the following can be done from Google Cloud Web App !
+		#
+		# export PROJECT="keras"
+		# export YOUR_IP="our LOCAL machine IP"
+		# gcloud compute --project "${PROJECT}" firewall-rules create "jupyter" --allow tcp:8888 --direction "INGRESS" --priority "1000" --network "default" --source-ranges "${YOUR_IP}" --target-tags "jupyter"
+		#
+		# after start the jupyter instance, and then we can access the jupyter (http://Google-VM-IP_address:8888/)
 
 
+
+3/15/18 (Thr) 
+
+     on Google Cloud Computing -- GOT the Jupyter running remotely, and accessible from my local machine (after adding the Firewall Rules)
+
+	     Which is basically a WHITE-Listing .
+
+
+     Now, able to see the Jupyter Notebook !
 
 
 
