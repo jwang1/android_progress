@@ -4619,6 +4619,22 @@ Actions:
      Now, able to see the Jupyter Notebook !
 
 
+     *) when installing tensorflow-gpu on vm failed (Memorry-Error),  and then, we do following:
+
+	     https://stackoverflow.com/questions/44335087/unable-to-install-tensorflow-memoryerror
+
+         sudo pip install --no-cache-dir tensorflow
+
+
+		 ^^ Not working,  Jupyter still complains,  hence, need to install it in conda,  try it
+
+
+		 conda install -c anaconda tensorflow-gpu
+
+
+
+
+   ^^ After the above, we are good for the Keras with Anaconda  (need to install tensorflow-gpu with conda) !
 
 
 
