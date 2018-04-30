@@ -4637,6 +4637,50 @@ Actions:
    ^^ After the above, we are good for the Keras with Anaconda  (need to install tensorflow-gpu with conda) !
 
 
+   NOTE, to get "Firewall Rules" from Google Cloud Platform (GCP), need to go to
+      a) VPC network
+	  b) Firwall rules
+	  c) add (or edit) the tcp:8888 for Jupyter;  for local machine IP (can be checked from whatismyip) 
+
+
+
+4/8/18 (Sunday)
+
+  1. back to Keras
+
+  2. will try Angular 5 (Angular next) 
+
+
+
+
+4/21/18 (Sunday)
+
+  1. 郑捷《机器学习算法原理与编程实践》学习笔记(第一章 机..._博客园
+
+     https://www.cnblogs.com/wuchuanying/p/6216382.html
+
+	 ^^ can save code typing for those long matrix;  but overall, good to type to get know the libraries !
+
+
+  2. Yeah, need the Keras
+
+
+  3. Also, the Angela Yu's video courses on iOS 11 and Swift 4
+
+
+
+4/29/18 (Sunday)
+
+  1. As indicated in https://github.com/jwang1/ccpp/blob/master/README.md
+
+     Doing C/C++
+
+	 will also do Python
+
+	 then, toward the Purpose, Vision ....
+
+
+  2. using https://www.udemy.com/free-learn-c-tutorial-beginners/learn/v4/t/lecture/1747818?start=0
 
 
 
